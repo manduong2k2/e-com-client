@@ -183,6 +183,7 @@ input[type="search"]:not(:placeholder-shown) {
 table {
   border-collapse: collapse;
   width: 100%;
+  
 }
 
 th,
