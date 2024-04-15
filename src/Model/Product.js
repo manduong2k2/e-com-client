@@ -1,7 +1,7 @@
 import React, { useState,useEffect  } from "react";
 import axios from "axios";
 import { Link,useNavigate  } from "react-router-dom";
-
+import cartImage from "../images/cart2.png";
 const Product = ({ product }) => {
   // Destructure product properties
   const { id, name, price, image,description,stock,brand,user } = product;
@@ -38,21 +38,34 @@ const Product = ({ product }) => {
   };
 
   return (
-    <div className="product-item">
-      <img src={image} alt={name} />
-      <h3>{name}</h3>
-      <p>{price}</p>
-      <p>{stock}</p>
-      <p>{description}</p>
-      <p>{brand.name}</p>
-      <p>{user.fullname}</p>
-      <form onSubmit={addToCart}>
-              <div className="form-group" style={{ margin: '30px' }}>
-                <button style={{ marginRight: '60px' }} type="submit" className="btn btn-primary btn-block">
-                  Add to cart
+    <div className="product-item" style={{cursor: 'pointer', border:'none'}}>
+      <div className="row justify-content-center">
+    {/* <div className="col-lg-3 col-md-4 col-sm-6 col-12"> */}
+      <div className="card">
+        <div className="card-header">
+          <img src={image} alt={name} className="card-img-top" style={{width: "214px", height: "214px"}} />
+        </div>
+        <div className="card-body">
+          <h4 className="card-title">{name}</h4>
+          <p className="card-text"><strong>Giá: </strong>{price} VNĐ</p>
+          <p className="card-text">{user.fullname}</p>
+        </div>
+        <div className="card-footer clearfix">
+          <div className="d-flex justify-content-between align-items-center">
+          <form onSubmit={addToCart}>
+                <button type="submit" className="btn btn-cart" onClick={() => window.confirm('Are you sure you want to add this dien thoai to cart?')}>
+                <img src={cartImage} alt="Cart" style={{width: '20px', height: '20px'}}/>
                 </button>
-              </div>
             </form>
+            <div>
+              <a href="#" className="btn btn-cart">Thông tin</a>
+            </div>
+          </div>
+        {/* </div> */}
+      </div>
+    </div>
+  </div>
+      
     </div>
   );
 };

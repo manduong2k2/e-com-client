@@ -80,7 +80,7 @@ function Navbar() {
             <li className="nav-item ">
               <Link
                 id="home-nav"
-                className="nav-link "
+                className="nav-link active"
                 aria-current="page"
                 to="/"
               >
