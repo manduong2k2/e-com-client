@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import '../css/bootstrap.min.css';
-import '../css/style.css';
+import '../../css/bootstrap.min.css';
+import '../../css/style.css';
 const SignUp = () => {
     const [fullname, setFullName] = useState('');
     const [username, setUsername] = useState('');

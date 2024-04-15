@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link  } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-import '../css/bootstrap.min.css';
-import '../css/style.css';
+import '../../css/bootstrap.min.css';
+import '../../css/style.css';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

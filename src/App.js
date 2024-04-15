@@ -1,15 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { Component } from "react";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
+import Login from "./components/user/Login";
+import SignUp from "./components/user/SignUp";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Navbar from "../src/layout/Navbar";
 import Footer from "./layout/footer";
-import AddProduct from "./components/AddProduct";
-import AddCategory from "./components/AddCategory";
-import AddBrand from "./components/AddBrand";
+import AddProduct from "./components/product/AddProduct";
+import AddCategory from "./components/category/AddCategory";
+import AddBrand from "./components/brand/AddBrand";
 import Introduce from "./components/Introduce";
 
 function App() {

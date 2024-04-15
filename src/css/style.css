@@ -5,7 +5,6 @@ h1 {
 .text-center {
   color: white;
 }
-
 /* .product-list {
     display: flex;
     flex-wrap: wrap;
@@ -15,7 +14,9 @@ h1 {
 .col-md-3 {
   width: 20%;
 }
-
+.navbar{
+  background: #000  ;
+}
 .product-item, .post-item {
   margin-bottom: 20px;
   box-sizing: border-box;
@@ -51,6 +52,7 @@ img {
 
 nav {
   background-color: hsl(218, 41%, 21%);
+  height: 90px;
 }
 
 .nav-brand:hover,
@@ -170,6 +172,7 @@ input[type="search"] {
   position: absolute;
   right: 250px;
   bottom: 5px;
+  margin-bottom: 12px;
 }
 label{
   font-weight: bold;
@@ -314,4 +317,7 @@ td {
 .col-item {
   flex: 0 0 auto; /* Không co dãn các cột */
   margin-right: 10px; /* Khoảng cách giữa các cột */
+}
+#log{
+  margin-bottom: 12px;
 }
