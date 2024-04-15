@@ -1,9 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-// import '../layout/style.css';
 import '../css/style.css';
 import cartImage from '../images/cart.png';
-// import '../images';
 import '../css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -72,7 +70,7 @@ function Navbar() {
                     <a id="home-nav" className="nav-link active" aria-current="page" href="/">Trang chủ</a>
                 </li>
                 <li className="nav-item ">
-                    <a id="introduce-nav" className="nav-link" onclick="Introduce(); changeActiveState('introduce-nav')">Giới thiệu</a>
+                    <a id="introduce-nav" className="nav-link" href="/introduce">Giới thiệu</a>
                 </li>
                 <li className="nav-item ">
                     <a id="product-nav" className="nav-link" onclick="ProductView(); changeActiveState('product-nav')">Sản phẩm</a>
