@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link  } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode'
-
+import { jwtDecode } from 'jwt-decode';
+import '../css/bootstrap.min.css';
+import '../css/style.css';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -56,22 +57,68 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <div>
-                    <label>Email:</label>
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </div>
-                <div>
-                    <label>Password:</label>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </div>
-                {error && <div>{error}</div>}
-                <button type="submit">Login</button>
-            </form>
-            <h2>Doesn't have an account? <Link to='/signup'>Sign Up</Link></h2>
+        <section className="background-radial-gradient overflow-hidden">
+      <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div className="row gx-lg-5 align-items-center mb-5">
+          <div className="col-lg-6 mb-5 mb-lg-0" style={{ zIndex: 10 }}>
+            <h1 className="my-5 display-5 fw-bold ls-tight" style={{ color: "hsl(218, 81%, 95%)" }}>
+              Chào mừng bạn đến với <br />
+              <span style={{ color: "hsl(218, 81%, 75%)" }}>E-Com</span>
+            </h1>
+            <p className="mb-4 opacity-70" style={{ color: "hsl(218, 81%, 85%)" }}>
+              E-Com Website cao cấp hàng đầu tại Việt Nam.
+            </p>
+          </div>
+
+          <div className="col-lg-6 mb-5 mb-lg-0 position-relative">
+            <div
+              id="radius-shape-1"
+              className="position-absolute rounded-circle shadow-5-strong"
+            ></div>
+            <div
+              id="radius-shape-2"
+              className="position-absolute shadow-5-strong"
+            ></div>
+
+            <div className="card bg-glass">
+              <div style={{ display: 'flex', justifyContent: 'center' }} className="card-body px-4 py-5 px-md-5">
+                <form onSubmit={handleLogin}>
+                <h1 className="mb-3 h3 text-center">Login</h1>
+                  <div className="form-outline mb-4">
+                    <input name="email"
+                      id="form3Example3"
+                      placeholder="Username hoặc email"
+                      required
+                      className="form-control" 
+                      type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+                  </div>
+                  <div className="form-outline mb-4">
+                    <input 
+                    name="password"
+                    id="form3Example4"
+                    className="form-control"
+                    placeholder='password'
+                    type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                  </div>
+                  {error && <div>{error}</div>}
+                  <button
+                  className='btn btn-primary btn-block mx-auto d-block mb-4'
+                  type="submit">Login</button>
+                  <div  className="text-center">
+                    <p>
+                      <a href="/forgot" >Quên mật khẩu?</a>
+                    </p>
+                  </div>  
+                  <div  className="text-center">
+                  <p>Doesn't have an account? <Link to='/signup'>Sign Up</Link></p>
+                  </div>           
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
     );
 };
 

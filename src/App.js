@@ -1,30 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
-import React, { Component } from 'react';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
-import Home from './components/Home';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Navbar from './Navbar';
-import AddProduct from './components/AddProduct';
-
+import logo from "./logo.svg";
+import "./App.css";
+import React, { Component } from "react";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import Home from "./components/Home";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Navbar from "../src/layout/Navbar";
+import Footer from "./layout/footer";
+import AddProduct from "./components/AddProduct";
+import AddCategory from "./components/AddCategory";
+import AddBrand from "./components/AddBrand";
+import Introduce from "./components/Introduce";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <header className="App-header">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.9/ejs.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>  
           <Navbar />
         </header>
         <body>
           <main>
             <Routes>
               <Route path="/" exact element={<Home />} />
-              <Route path="/AddProduct" exact element={<AddProduct />} />
-              <Route path="/login" exact element={<Login />} />
+              <Route path="/introduce" exact element={<Introduce />} />
               <Route path="/signup" exact element={<SignUp />} />
+              <Route path="/login" exact element={<Login />} />
+              <Route path="/AddProduct" exact element={<AddProduct />} />
+              <Route path="/AddCategory" exact element={<AddCategory />} />
+              <Route path="/AddBrand" exact element={<AddBrand />} />
             </Routes>
           </main>
+          <Footer />
         </body>
       </div>
     </Router>
