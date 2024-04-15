@@ -1,72 +1,122 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const AddProduct = () => {
-    const [name, setName] = useState('');
-    const [image, setImage] = useState('');
-    const [stock, setStock] = useState('');
-    const [price, setPrice] = useState('');
-    const [description, setDescription] = useState('');
-    const [brand_id, setBrand_id] = useState('');
-    const [error, setError] = useState(null);
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [stock, setStock] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [brand_id, setBrand_id] = useState("");
+  const [error, setError] = useState(null);
 
-    const handleSignup = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await fetch('http://jul2nd.ddns.net/api/product/create', {
-                method: 'POST',
-                body: JSON.stringify({
-                    name,
-                    stock,
-                    price,
-                    image,
-                    stock,
-                    description,
-                    brand_id
-                })
-            });
-
-            // Xử lý phản hồi từ backend ở đây (ví dụ: lưu token vào localStorage)
-        } catch (error) {
-            setError('Invalid email or password. Please try again.');
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        "http://jul2nd.ddns.net/api/product/create",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            name,
+            stock,
+            price,
+            image,
+            stock,
+            description,
+            brand_id,
+          }),
         }
-    };
+      );
 
-    return (
-        <div>
-            <h2>Sign up</h2>
+      // Xử lý phản hồi từ backend ở đây (ví dụ: lưu token vào localStorage)
+    } catch (error) {
+      setError("Invalid email or password. Please try again.");
+    }
+  };
+
+  return (
+    <div className="row justify-content-center">
+      <div className="col-md-6">
+        <div className="card" style={{margin: '30px'}}>
+          <div className="card-body">
+            <h1>Thêm sản phẩm</h1>
             <form onSubmit={handleSignup}>
-                <div>
-                    <label>Name:</label>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                </div>
-                <div>
-                    <label>Stock:</label>
-                    <input type="text" value={stock} onChange={(e) => setStock(e.target.value)} />
-                </div>
-                <div>
-                    <label>Price:</label>
-                    <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
-                </div>
-                <div>
-                    <label>Description:</label>
-                    <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
-                </div>
-                <div>
-                    <label>Image:</label>
-                    <input type="file" value={image} onChange={(e) => setImage(e.target.value)} />
-                </div>
-                <div>
-                    <label>Brand:</label>
-                    <input type="text" value={brand_id} onChange={(e) => setBrand_id(e.target.value)} />
-                </div>
-                {error && <div>{error}</div>}
-                <button type="submit">Submit</button>
-                <Link to='/'>Cancel</Link>
+              <div className="form-group">
+                <label htmlFor="name">Name:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="stock">Stock:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="stock"
+                  value={stock}
+                  onChange={(e) => setStock(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="price">Price:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="price"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="description">Description:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="image">Image:</label>
+                <input
+                  type="file"
+                  className="form-control-file"
+                  id="image"
+                  onChange={(e) => setImage(e.target.files[0])}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="brand_id">Brand:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="brand_id"
+                  value={brand_id}
+                  onChange={(e) => setBrand_id(e.target.value)}
+                />
+              </div>
+              {error && <div className="alert alert-danger">{error}</div>}
+              <div className="form-group" style={{margin: '30px'}}>
+               <button style={{marginRight: '60px'}} type="submit" className="btn btn-primary btn-block">
+                Submit
+              </button>
+              <Link to="/" className="btn btn-secondary btn-block">
+                Cancel
+              </Link>
+              </div>
             </form>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default AddProduct;
