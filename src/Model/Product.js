@@ -53,7 +53,7 @@ const Product = ({ product }) => {
         <div className="card-footer clearfix">
           <div className="d-flex justify-content-between align-items-center">
           <form onSubmit={addToCart}>
-                <button type="submit" className="btn btn-cart" onClick={() => window.confirm('Are you sure you want to add this dien thoai to cart?')}>
+                <button type="submit" className="btn btn-cart" onClick={() => window.confirm('Are you sure you want to add this item to cart?')}>
                 <img src={cartImage} alt="Cart" style={{width: '20px', height: '20px'}}/>
                 </button>
             </form>

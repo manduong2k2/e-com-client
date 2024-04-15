@@ -53,7 +53,7 @@ const AddCategory = () => {
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
-              {error && <div className="alert alert-danger">{error}</div>}
+              {error && <div style={{color: 'red'}} className="alert alert-danger">{error}</div>}
              <div className="form-group" style={{margin: '30px'}}>
                <button style={{marginRight: '60px'}} type="submit" className="btn btn-primary btn-block">
                 Submit

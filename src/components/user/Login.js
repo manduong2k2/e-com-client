@@ -100,7 +100,7 @@ const Login = () => {
                     placeholder='password'
                     type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                   </div>
-                  {error && <div>{error}</div>}
+                  {error && <div style={{color: 'red'}}>{error}</div>}
                   <button
                   className='btn btn-primary btn-block mx-auto d-block mb-4'
                   type="submit">Login</button>
