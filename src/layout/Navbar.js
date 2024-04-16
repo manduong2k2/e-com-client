@@ -93,11 +93,7 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item ">
-              <Link
-                id="product-nav"
-                className="nav-link"
-                onclick="ProductView(); changeActiveState('product-nav')"
-              >
+              <Link id="introduce-nav" className="nav-link" to="/introduce">
                 Sản phẩm
               </Link>
             </li>
@@ -105,12 +101,37 @@ function Navbar() {
               <Link
                 id="contact-nav"
                 className="nav-link"
-                onclick="Contact(); changeActiveState('contact-nav')"
+                onClick="Contact(); changeActiveState('contact-nav')"
               >
                 Liên hệ
               </Link>
             </li>
+            {/* ------admin------ */}
+            <li className="danhmuc-dropdown nav-item dropdown">
+              <a
+                onClick={toggleDropdown}
+                className="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Quản lý
+              </a>
+              {showDropdown && (
+                <ul className="dropdown-menu drop2">
+                  <li>
+                    <Link to="/">Tài khoản</Link>
+                  </li>
+                  <li>
+                    <Link to="/">Nhãn hiệu</Link>
+                  </li>
+                  <li>
+                    <Link to="/">Loại sản phẩm</Link>
+                  </li>
+                </ul>
+              )}
+            </li>
 
+            {/* ------admin------ */}
             <li id="search-nav" className="nav-item search-bar">
               <form>
                 <input

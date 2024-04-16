@@ -230,13 +230,26 @@ td {
 .user-icon:hover{
   color: #ccc;
 }
-.user-dropdown:hover .dropdown-menu {
+.drop2{
+  transform: translateX(-1px);
+}
+.user-dropdown:hover .dropdown-menu, .danhmuc-dropdown:hover .dropdown-menu{
   display: block;
 }.dropdown-menu li {
   margin-bottom: 5px;
   text-align: center;
 }
+.price{
+  color:red;
+  font-size: 22px;
+}
 
+.info{
+font-size: 12px;
+    position: absolute;
+    right: 10px;
+    transform: translateY(-5px);
+}
 .dropdown-menu li a {
   color: #333;
   text-decoration: none;

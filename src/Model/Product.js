@@ -47,8 +47,8 @@ const Product = ({ product }) => {
         </div>
         <div className="card-body">
           <h4 className="card-title">{name}</h4>
-          <p className="card-text"><strong>Giá: </strong>{price} VNĐ</p>
-          <p className="card-text">{user.fullname}</p>
+          <p className="card-text price">{price} VNĐ</p>
+          <p className="card-text info">{user.fullname}</p>
         </div>
         <div className="card-footer clearfix">
           <div className="d-flex justify-content-between align-items-center">
