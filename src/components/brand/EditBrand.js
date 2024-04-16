@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const AddBrand = () => {
+const EditBrand = () => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
@@ -11,7 +11,7 @@ const AddBrand = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://jul2nd.ddns.net/api/brand/create",
+        "http://jul2nd.ddns.net/api/brand/edit/" + id,
         {
           method: "POST",
           body: JSON.stringify({
@@ -33,7 +33,7 @@ const AddBrand = () => {
       <div className="col-md-6">
         <div className="card" style={{margin: '30px'}}>
           <div className="card-body">
-            <h1>Thêm nhãn hiệu</h1>
+            <h1>Sửa nhãn hiệu</h1>
             <form onSubmit={handleSignup}>
               <div className="form-group">
                 <label htmlFor="name">Name:</label>
@@ -81,4 +81,4 @@ const AddBrand = () => {
   );
 };
 
-export default AddBrand;
+export default EditBrand;

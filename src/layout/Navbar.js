@@ -92,12 +92,12 @@ function Navbar() {
                 Giới thiệu
               </Link>
             </li>
-            <li className="nav-item ">
+            {/* <li className="nav-item ">
               <Link id="introduce-nav" className="nav-link" to="/introduce">
                 Sản phẩm
               </Link>
-            </li>
-            <li className="nav-item ">
+            </li> */}
+            {/* <li className="nav-item ">
               <Link
                 id="contact-nav"
                 className="nav-link"
@@ -105,6 +105,10 @@ function Navbar() {
               >
                 Liên hệ
               </Link>
+            </li> */}
+            <li className="nav-item ">
+              <Link id="contact-nav"
+                className="nav-link" to='/AddProduct'>Đăng bán</Link>
             </li>
             {/* ------admin------ */}
             <li className="danhmuc-dropdown nav-item dropdown">
@@ -122,10 +126,10 @@ function Navbar() {
                     <Link to="/users">Tài khoản</Link>
                   </li>
                   <li>
-                    <Link to="/">Nhãn hiệu</Link>
+                    <Link to="/brands">Nhãn hiệu</Link>
                   </li>
                   <li>
-                    <Link to="/">Loại sản phẩm</Link>
+                    <Link to="/categories">Loại sản phẩm</Link>
                   </li>
                 </ul>
               )}

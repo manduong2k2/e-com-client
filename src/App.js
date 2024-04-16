@@ -10,8 +10,11 @@ import Footer from "./layout/footer";
 import AddProduct from "./components/product/AddProduct";
 import AddCategory from "./components/category/AddCategory";
 import AddBrand from "./components/brand/AddBrand";
+import EditBrand from "./components/brand/EditBrand";
 import Introduce from "./components/Introduce";
 import UserList from "./components/user/UserList";
+import BrandList from "./components/brand/BrandList";
+import CategoryList from "./components/category/CategoryList";
 
 function App() {
   return (
@@ -31,12 +34,15 @@ function App() {
             <Routes>
               <Route path="/" exact element={<Home />} />
               <Route path="/users" exact element={<UserList />} />
+              <Route path="/brands" exact element={<BrandList />} />
+              <Route path="/categories" exact element={<CategoryList />} />
               <Route path="/introduce" exact element={<Introduce />} />
               <Route path="/signup" exact element={<SignUp />} />
               <Route path="/login" exact element={<Login />} />
               <Route path="/AddProduct" exact element={<AddProduct />} />
               <Route path="/AddCategory" exact element={<AddCategory />} />
               <Route path="/AddBrand" exact element={<AddBrand />} />
+              <Route path="/EditBrand" exact element={<EditBrand />} />
             </Routes>
           </main>
           <Footer />

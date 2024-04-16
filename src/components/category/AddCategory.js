@@ -31,7 +31,7 @@ const AddCategory = () => {
       <div className="col-md-6">
         <div className="card" style={{margin: '30px'}}>
           <div className="card-body">
-            <h1>Thêm Category</h1>
+            <h1>Thêm Loại sản phẩm</h1>
             <form onSubmit={handleSignup}>
               <div className="form-group">
                 <label htmlFor="name">Name:</label>

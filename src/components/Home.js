@@ -50,8 +50,6 @@ const Home = () => {
 
     return (
         <div className='container'>
-            <Link to='/AddProduct'>Post a Product</Link>
-
             {/* Select box cho thương hiệu */}
             <select value={selectedBrand} onChange={handleBrandChange}>
                 <option value="">Chọn thương hiệu</option>
