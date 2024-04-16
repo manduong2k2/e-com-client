@@ -62,7 +62,8 @@ const AddProduct = () => {
       );
       navigate('/');
     } catch (error) {
-      console.log(error.response.data.message);
+      console.log('error: '+error.response.data.message);
+      console.log('status: '+error.response.status);
     }
   };
 

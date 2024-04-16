@@ -329,3 +329,8 @@ td {
 #log{
   margin-bottom: 12px;
 }
+.card-title{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
