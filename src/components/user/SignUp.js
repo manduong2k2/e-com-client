@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import '../../css/bootstrap.min.css';
 import '../../css/style.css';
 const SignUp = () => {
@@ -11,6 +11,7 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     const handleSignup = async (e) => {
         e.preventDefault();
@@ -28,7 +29,11 @@ const SignUp = () => {
                 },
             });
 
-            window.location.href='/login';
+            if(response.status===200){
+              alert('Đăng ký thành công ! xin mời đăng nhập');
+              navigate("/login");
+            }
+            console.log('Message : '+response.data.message);
             
         } catch (error) {
             setError('Server errror');

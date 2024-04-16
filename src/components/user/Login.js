@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link  } from 'react-router-dom';
+import { Link,useNavigate  } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import '../../css/bootstrap.min.css';
 import '../../css/style.css';
@@ -10,6 +10,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     function setCookie(name, value, options = {}) {
         options = {
@@ -41,9 +42,10 @@ const Login = () => {
                 setCookie('token', token);
                 setCookie('name', decodedToken.name);
                 setCookie('image', decodedToken.image);
-                
 
-                window.location.href='/';
+                alert('Đăng nhập thành công !');
+                
+                window.location.href = "/";
 
               } else {
                 setError('Invalid email or password. Please try again.');

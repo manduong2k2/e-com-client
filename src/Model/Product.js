@@ -42,7 +42,7 @@ const Product = ({ product }) => {
       <div className="row justify-content-center">
     {/* <div className="col-lg-3 col-md-4 col-sm-6 col-12"> */}
       <div className="card">
-        <div className="card-header">
+        <div className="card-header" style={{backgroundColor:'white',marginTop:10}}>
           <img src={image} alt={name} className="card-img-top" style={{width: "214px", height: "214px"}} />
         </div>
         <div className="card-body">

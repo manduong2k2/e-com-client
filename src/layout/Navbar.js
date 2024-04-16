@@ -4,9 +4,10 @@ import "../css/style.css";
 import cartImage from "../images/cart.png";
 import "../css/bootstrap.min.css";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link,useLocation,useNavigate } from "react-router-dom";
+import { jwtDecode } from 'jwt-decode';
 
-// Consider using a dedicated library like `js-cookie` for more robust cookie handling
+
 function getCookie(name) {
   const value = `; `;
   const parts = document.cookie.split(value);
@@ -37,8 +38,9 @@ function removeCookie(name, path, domain) {
 }
 function Navbar() {
   const [showDropdown, setShowDropdown] = useState(false);
-
-  // Fetch token from cookie on component mount
+  const location = useLocation();
+  const [isAdmin, setIsAdmin] = useState(false);
+  
   const [token, setToken] = useState(getCookie("token"));
   const [name, setName] = useState(getCookie("name"));
   const [image, setImage] = useState(getCookie("image"));
@@ -47,7 +49,8 @@ function Navbar() {
     setToken(getCookie("token"));
     setName(getCookie("name"));
     setImage(getCookie("image"));
-  }, []); // Empty dependency array ensures fetching only once
+    if(token) setIsAdmin(jwtDecode(token).roles.some(role => role.id === 2));
+  }, [location.pathname]); 
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -57,7 +60,7 @@ function Navbar() {
     removeCookie("token");
     removeCookie("name");
     removeCookie("image");
-    setToken(""); // Update state to reflect logout
+    setToken(""); 
     window.location.href = "/login";
   };
 
@@ -80,7 +83,7 @@ function Navbar() {
             <li className="nav-item ">
               <Link
                 id="home-nav"
-                className="nav-link active"
+                className="nav-link "
                 aria-current="page"
                 to="/"
               >
@@ -110,14 +113,9 @@ function Navbar() {
               <Link id="contact-nav"
                 className="nav-link" to='/AddProduct'>Đăng bán</Link>
             </li>
-            {/* ------admin------ */}
-            <li className="danhmuc-dropdown nav-item dropdown">
-              <a
-                onClick={toggleDropdown}
-                className="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+            {isAdmin &&(
+              <li className="danhmuc-dropdown nav-item dropdown">
+              <a onClick={toggleDropdown} className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" >
                 Quản lý
               </a>
               {showDropdown && (
@@ -134,8 +132,7 @@ function Navbar() {
                 </ul>
               )}
             </li>
-
-            {/* ------admin------ */}
+            )}
             <li id="search-nav" className="nav-item search-bar">
               <form>
                 <input

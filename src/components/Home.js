@@ -49,24 +49,24 @@ const Home = () => {
     });
 
     return (
-        <div className='container'>
-            {/* Select box cho thương hiệu */}
-            <select value={selectedBrand} onChange={handleBrandChange}>
-                <option value="">Chọn thương hiệu</option>
-                {brands.map((brand) => (
-                    <option key={brand.id} value={brand.id}>{brand.name}</option>
-                ))}
-            </select>
+        <div style={{marginTop:20 }} className='container'>
 
-            {/* Select box cho danh mục */}
-            <select value={selectedCategory} onChange={handleCategoryChange}>
-                <option value="">Chọn danh mục</option>
-                {categories.map((category) => (
-                    <option key={category.id} value={category.id}>{category.name}</option>
-                ))}
-            </select>
+            <div style={{display:'flex'}}>
+                <select className='form-control' value={selectedBrand} onChange={handleBrandChange}>
+                    <option value="">Chọn thương hiệu</option>
+                    {brands.map((brand) => (
+                        <option key={brand.id} value={brand.id}>{brand.name}</option>
+                    ))}
+                </select>
+                <select className='form-control' value={selectedCategory} onChange={handleCategoryChange}>
+                    <option value="">Chọn danh mục</option>
+                    {categories.map((category) => (
+                        <option key={category.id} value={category.id}>{category.name}</option>
+                    ))}
+                </select>
+            </div>
 
-            <div style={{border: "none"}} className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+            <div style={{ border: "none" }} className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {filteredProducts.map((product) => (
                     <div className="col-lg-3 col-md-4 col-sm-6" key={product.id}>
                         <Product product={product} />
