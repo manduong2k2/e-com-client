@@ -35,6 +35,7 @@ function App() {
               <Route path="/" exact element={<Home />} />
               <Route path="/users" exact element={<UserList />} />
               <Route path="/brands" exact element={<BrandList />} />
+              <Route path="/brand/edit/:id" exact element={<EditBrand />} />
               <Route path="/categories" exact element={<CategoryList />} />
               <Route path="/introduce" exact element={<Introduce />} />
               <Route path="/signup" exact element={<SignUp />} />
@@ -42,7 +43,6 @@ function App() {
               <Route path="/AddProduct" exact element={<AddProduct />} />
               <Route path="/AddCategory" exact element={<AddCategory />} />
               <Route path="/AddBrand" exact element={<AddBrand />} />
-              <Route path="/EditBrand" exact element={<EditBrand />} />
             </Routes>
           </main>
           <Footer />
