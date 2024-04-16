@@ -11,6 +11,7 @@ import AddProduct from "./components/product/AddProduct";
 import AddCategory from "./components/category/AddCategory";
 import AddBrand from "./components/brand/AddBrand";
 import Introduce from "./components/Introduce";
+import UserList from "./components/user/UserList";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <main>
             <Routes>
               <Route path="/" exact element={<Home />} />
+              <Route path="/users" exact element={<UserList />} />
               <Route path="/introduce" exact element={<Introduce />} />
               <Route path="/signup" exact element={<SignUp />} />
               <Route path="/login" exact element={<Login />} />

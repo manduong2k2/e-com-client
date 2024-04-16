@@ -119,7 +119,7 @@ function Navbar() {
               {showDropdown && (
                 <ul className="dropdown-menu drop2">
                   <li>
-                    <Link to="/">Tài khoản</Link>
+                    <Link to="/users">Tài khoản</Link>
                   </li>
                   <li>
                     <Link to="/">Nhãn hiệu</Link>
