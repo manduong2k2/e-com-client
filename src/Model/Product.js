@@ -35,7 +35,7 @@ const Product = ({ product }) => {
       } catch (error) {
         console.log('error: ' + error.response.data.message);
       }
-    } 
+    }
   };
 
   return (

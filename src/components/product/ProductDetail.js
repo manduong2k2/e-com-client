@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ship from "../../images/ship.jpg";
+import uytin from "../../images/uytin.jpg";
 import { Link,useNavigate,useParams  } from "react-router-dom";
 const ProductDetail = () => {
   const { id } = useParams(); // Lấy id sản phẩm từ URL
@@ -100,9 +102,10 @@ const ProductDetail = () => {
       </div>
       <br />
   <p style={{fontSize:"16px", width:"100%"}}>
-    <span><img src="/images/uytin.jpg" width="30px"/></span>
+
+    <span><img src={uytin} width="30px"/></span>
     Hàng chính hãng - Bảo hành 12 Tháng
-    <span><img src="/images/ship.jpg" width="30px"/></span>
+    <span><img src={ship} width="30px"/></span>
     Giao hàng toàn quốc
   </p>
     </div>
