@@ -47,7 +47,7 @@ function Footer() {
                   <a
                     className="text-white"
                     style={{ cursor: "pointer" }}
-                    onclick="Introduce(); changeActiveState('introduce-nav')"
+                    onClick="Introduce(); changeActiveState('introduce-nav')"
                   >
                     Giới thiệu
                   </a>
@@ -56,7 +56,7 @@ function Footer() {
                   <a
                     className="text-white"
                     style={{ cursor: "pointer" }}
-                    onclick="ProductView(); changeActiveState('product-nav')"
+                    onClick="ProductView(); changeActiveState('product-nav')"
                   >
                     Sản phẩm
                   </a>
@@ -65,7 +65,7 @@ function Footer() {
                   <a
                     className="text-white"
                     style={{ cursor: "pointer" }}
-                    onclick="PostList(); changeActiveState('community-nav')"
+                    onClick="PostList(); changeActiveState('community-nav')"
                   >
                     Cộng đồng
                   </a>

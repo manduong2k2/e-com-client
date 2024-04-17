@@ -17,6 +17,19 @@ const EditProduct = () => {
       setError("Failed to load. Please try again.");
     }
   };
+  const handleImagePreviewClick = () => {
+    document.getElementById("productImage").click();
+  };
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        document.getElementById("imagePreview").src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   function getCookie(name) {
     const value = `; `;
     const parts = document.cookie.split(value);
@@ -30,7 +43,8 @@ const EditProduct = () => {
   }
   useEffect(() => {
     fetchBrandsAndCategories();
-    axios.get("http://jul2nd.ddns.net/api/products/" + id, {
+    axios
+      .get("http://jul2nd.ddns.net/api/products/" + id, {
         headers: {
           Authorization: "Bearer " + getCookie("token"),
         },
@@ -61,18 +75,6 @@ const EditProduct = () => {
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-
-  function getCookie(name) {
-    const value = `; `;
-    const parts = document.cookie.split(value);
-    for (let i = 0; i < parts.length; i++) {
-      const part = parts[i].split("=");
-      if (part.length === 2 && name === part[0]) {
-        return part[1];
-      }
-    }
-    return "";
-  }
   const handleUpdateProduct = async (e) => {
     e.preventDefault();
     try {
@@ -86,7 +88,8 @@ const EditProduct = () => {
       formData.append("brand_id", brand_id);
       if (image) formData.append("image", image);
       formData.append("description", description);
-      const response = await axios.patch("http://jul2nd.ddns.net/api/product/edit/" + id,
+      const response = await axios.patch(
+        "http://jul2nd.ddns.net/api/product/edit/" + id,
         formData,
         {
           headers: {
@@ -158,10 +161,19 @@ const EditProduct = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="image">Image:</label>
-                <img src={image} height={30} width={30}/>
+                <img
+                  src={image}
+                  id="imagePreview"
+                  height={90}
+                  width={90}
+                  style={{ cursor: "pointer" }}
+                  onClick={handleImagePreviewClick}
+                />
                 <input
+                  onChange={handleImageChange}
                   type="file"
                   id="productImage"
+                  style={{ display: "none" }}
                 />
               </div>
               <div className="form-group">

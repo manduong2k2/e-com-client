@@ -1,27 +1,41 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link,useNavigate  } from "react-router-dom";
+
 
 const AddBrand = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [error, setError] = useState(null);
+  function getCookie(name) {
+    const value = `; `;
+    const parts = document.cookie.split(value);
+    for (let i = 0; i < parts.length; i++) {
+        const part = parts[i].split('=');
+        if (part.length === 2 && name === part[0]) {
+            return part[1];
+        }
+    }
+    return '';
+  }
   const handleSignup = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append('name', name);
+    if(image) formData.append('image', image);
+    formData.append('description', description);
     try {
-      const response = await fetch(
-        "http://jul2nd.ddns.net/api/brand/create",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            name,
-            image,
-            description,
-          }),
+      const response = await axios.post(
+        "http://jul2nd.ddns.net/api/brand/create", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            'Authorization':'Bearer '+ getCookie('token')
+          },
         }
       );
-
+      navigate("/brands");
       // Xử lý phản hồi từ backend ở đây (ví dụ: lưu token vào localStorage)
     } catch (error) {
       setError("Invalid email or password. Please try again.");

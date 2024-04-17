@@ -22,6 +22,19 @@ const EditBrand = () => {
       });
   }, []);
 
+  const handleImagePreviewClick = () => {
+    document.getElementById("brandImage").click();
+  };
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        document.getElementById("imagePreview").src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   const [name, setName] = useState('');
   var [image, setImage] = useState('');
   const [description, setDescription] = useState('');
@@ -48,6 +61,7 @@ const EditBrand = () => {
       if (image)
         formData.append('image', image);
       formData.append('description', description);
+      console.log(name + ': ' + description);
       const response = await axios.patch("http://jul2nd.ddns.net/api/brand/edit/" + id, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -55,8 +69,8 @@ const EditBrand = () => {
         },
       });
       if(response.status===200){
-        alert(response.data.message);
-        navigate('/brands');
+        console.log(response.data.request);
+        // navigate('/brands');
       }
       else{
         alert(response.data.message);
@@ -65,7 +79,7 @@ const EditBrand = () => {
       // Xử lý phản hồi từ backend ở đây
     } catch (error) {
       setError("Failed to update brand. Please try again.");
-      console.log(error.response.data.message);
+      console.log(error);
     }
   };
 
@@ -88,12 +102,15 @@ const EditBrand = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="image">Image:</label>
-                <img src={image} height={60} width={60} />
-                <input
-                  type="file"
-                  className="form-control-file"
-                  id="brandImage"
+                <img
+                  src={image}
+                  id="imagePreview"
+                  height={90}
+                  width={90}
+                  style={{ cursor: "pointer" }}
+                  onClick={handleImagePreviewClick}
                 />
+                <input onChange={handleImageChange} type="file" id="brandImage" style={{ display: "none" }} />
               </div>
               <div className="form-group">
                 <label htmlFor="description">Description:</label>
