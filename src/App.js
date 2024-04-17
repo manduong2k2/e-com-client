@@ -17,6 +17,7 @@ import Introduce from "./components/Introduce";
 import UserList from "./components/user/UserList";
 import BrandList from "./components/brand/BrandList";
 import CategoryList from "./components/category/CategoryList";
+import PersonalAccount from "./components/user/personal.account";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Routes>
               <Route path="/" exact element={<Home />} />
               <Route path="/users" exact element={<UserList />} />
+              <Route path="/user/manage" exact element={<PersonalAccount />} />
               <Route path="/brands" exact element={<BrandList />} />
               <Route path="/brand/edit/:id" exact element={<EditBrand />} />
               <Route path="/category/edit/:id" exact element={<EditCategory />} />

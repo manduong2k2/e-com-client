@@ -172,7 +172,7 @@ function Navbar() {
                   {token ? (
                     <>
                     <li>
-                      <Link to="">
+                      <Link to="/user/manage">
                         Quản lý tài khoản
                       </Link>
                     </li>
