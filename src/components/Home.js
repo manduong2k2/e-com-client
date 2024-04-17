@@ -39,13 +39,15 @@ const Home = () => {
 
     // Lọc danh sách sản phẩm dựa trên thương hiệu và danh mục được chọn
     const filteredProducts = products.filter(product => {
-        if (selectedBrand && product.brand.id !== selectedBrand) {
-            return false;
+        if (selectedBrand && selectedCategory) {
+            return parseInt(product.brand_id) === parseInt(selectedBrand) && parseInt(product.category_id) === parseInt(selectedCategory);
+        } else if (selectedBrand) {
+            return parseInt(product.brand_id) === parseInt(selectedBrand);
+        } else if (selectedCategory) {
+            return parseInt(product.category_id) === parseInt(selectedCategory);
+        } else {
+            return true;
         }
-        if (selectedCategory && product.category.id !== selectedCategory) {
-            return false;
-        }
-        return true;
     });
 
     return (
