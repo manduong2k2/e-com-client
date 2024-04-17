@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
@@ -7,13 +8,39 @@ const CategoryList = () => {
     const value = `; `;
     const parts = document.cookie.split(value);
     for (let i = 0; i < parts.length; i++) {
-        const part = parts[i].split('=');
-        if (part.length === 2 && name === part[0]) {
-            return part[1];
-        }
+      const part = parts[i].split("=");
+      if (part.length === 2 && name === part[0]) {
+        return part[1];
+      }
     }
-    return '';
+    return "";
   }
+  const Delete = async (id) => {
+    const result = window.confirm(
+      "Bạn có chắc muốn xoá loại sản phẩm này không?"
+    );
+    if (result) {
+      try {
+        const response = await axios.delete(
+          "http://jul2nd.ddns.net/api/category/delete/" + id,
+          {},
+          {
+            headers: {
+              Authorization: "Bearer " + getCookie("token"),
+            },
+          }
+        );
+        if (response.status === 200) {
+          alert("Xoá loại sản phẩm thành công !");
+          window.location.href = "/categories";
+        } else {
+          alert(response.data.message);
+        }
+      } catch (error) {
+        console.log(error.response.data.message);
+      }
+    }
+  };
   useEffect(() => {
     axios
       .get("http://jul2nd.ddns.net/api/categories", {
@@ -31,6 +58,7 @@ const CategoryList = () => {
   return (
     <div>
       <h2>Category List</h2>
+        <Link className="btn btn-primary" to="/category/add">Thêm loại sản phẩm</Link>
       <table border="1">
         <thead>
           <tr>
@@ -46,13 +74,20 @@ const CategoryList = () => {
               <td>{category.name}</td>
               <td>
                 <div className="form-group">
-                <button style={{marginRight: '30px'}} className="btn btn-primary btn-block">
-                Sửa
-                </button>
-                <button className="btn btn-danger btn-block">
-                Xoá
-                </button>
-              </div>
+                  <Link
+                    style={{ margin: 20 }}
+                    className="btn btn-primary btn-lock"
+                    to={"/category/edit/" + category.id}
+                  >
+                    Sửa
+                  </Link>
+                  <button
+                    className="btn btn-danger btn-block"
+                    onClick={() => Delete(category.id)}
+                  >
+                    Xoá
+                  </button>
+                </div>
               </td>
             </tr>
           ))}

@@ -111,7 +111,7 @@ function Navbar() {
             </li> */}
             <li className="nav-item ">
               <Link id="contact-nav"
-                className="nav-link" to='/AddProduct'>Đăng bán</Link>
+                className="nav-link" to='/product/add'>Đăng bán</Link>
             </li>
             {isAdmin &&(
               <li className="danhmuc-dropdown nav-item dropdown">
@@ -168,13 +168,20 @@ function Navbar() {
                 )}
               </button>
               {showDropdown && (
-                <ul className="dropdown-menu drop1">
+                <ul className="dropdown-menu drop1" id="drop1">
                   {token ? (
+                    <>
+                    <li>
+                      <Link to="">
+                        Quản lý tài khoản
+                      </Link>
+                    </li>
                     <li>
                       <Link to="" onClick={handleLogout}>
                         Logout
                       </Link>
                     </li>
+                    </>
                   ) : (
                     <>
                       <li>

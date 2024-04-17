@@ -101,7 +101,9 @@ nav {
   margin-right: 30px;
   bottom: 1px;
 }
-
+#drop1{
+  width: 170px;
+}
 .dropdown-menu {
   transform: translate(-50px);
   width: 150px;

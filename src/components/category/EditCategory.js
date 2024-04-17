@@ -3,28 +3,24 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 
-const EditBrand = () => {
+const EditCategory = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get("http://jul2nd.ddns.net/api/brand/" + id, {
+    axios.get("http://jul2nd.ddns.net/api/category/" + id, {
       headers: {
         Authorization: "Bearer " + getCookie("token"),
       },
     })
       .then((response) => {
-        setName(response.data.brand.name);
-        setImage(response.data.brand.image);
-        setDescription(response.data.brand.description);
+        setName(response.data.category.name);
       })
       .catch((error) => {
-        console.error("Error fetching brands:", error.response);
+        console.error("Error fetching categories:", error.response);
       });
   }, []);
 
   const [name, setName] = useState('');
-  var [image, setImage] = useState('');
-  const [description, setDescription] = useState('');
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -39,16 +35,12 @@ const EditBrand = () => {
     }
     return '';
   }
-  const handleUpdateBrand = async (e) => {
+  const handleUpdateCategory = async (e) => {
     e.preventDefault();
     try {
-      image = document.getElementById('brandImage').files[0];
       const formData = new FormData();
       formData.append('name', name);
-      if (image)
-        formData.append('image', image);
-      formData.append('description', description);
-      const response = await axios.patch("http://jul2nd.ddns.net/api/brand/edit/" + id, formData, {
+      const response = await axios.patch("http://jul2nd.ddns.net/api/category/edit/" + id, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           'Authorization': 'Bearer ' + getCookie('token')
@@ -56,7 +48,7 @@ const EditBrand = () => {
       });
       if(response.status===200){
         alert(response.data.message);
-        navigate('/brands');
+        navigate('/categories');
       }
       else{
         alert(response.data.message);
@@ -64,7 +56,7 @@ const EditBrand = () => {
 
       // Xử lý phản hồi từ backend ở đây
     } catch (error) {
-      setError("Failed to update brand. Please try again.");
+      setError("Failed to update category. Please try again.");
       console.log(error.response.data.message);
     }
   };
@@ -74,8 +66,8 @@ const EditBrand = () => {
       <div className="col-md-6">
         <div className="card" style={{ margin: "30px" }}>
           <div className="card-body">
-            <h1>Edit Brand</h1>
-            <form onSubmit={handleUpdateBrand}>
+            <h1>Edit Category</h1>
+            <form onSubmit={handleUpdateCategory}>
               <div className="form-group">
                 <label htmlFor="name">Name:</label>
                 <input
@@ -84,25 +76,6 @@ const EditBrand = () => {
                   id="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="image">Image:</label>
-                <img src={image} height={60} width={60} />
-                <input
-                  type="file"
-                  className="form-control-file"
-                  id="brandImage"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="description">Description:</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="description"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
               {error && (
@@ -118,7 +91,7 @@ const EditBrand = () => {
                 >
                   Submit
                 </button>
-                <Link to="/brands" className="btn btn-secondary btn-block">
+                <Link to="/categories" className="btn btn-secondary btn-block">
                   Cancel
                 </Link>
               </div>
@@ -130,4 +103,4 @@ const EditBrand = () => {
   );
 };
 
-export default EditBrand;
+export default EditCategory;

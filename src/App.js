@@ -11,6 +11,8 @@ import AddProduct from "./components/product/AddProduct";
 import AddCategory from "./components/category/AddCategory";
 import AddBrand from "./components/brand/AddBrand";
 import EditBrand from "./components/brand/EditBrand";
+import EditProduct from "./components/product/EditProduct";
+import EditCategory from "./components/category/EditCategory";
 import Introduce from "./components/Introduce";
 import UserList from "./components/user/UserList";
 import BrandList from "./components/brand/BrandList";
@@ -36,13 +38,15 @@ function App() {
               <Route path="/users" exact element={<UserList />} />
               <Route path="/brands" exact element={<BrandList />} />
               <Route path="/brand/edit/:id" exact element={<EditBrand />} />
+              <Route path="/category/edit/:id" exact element={<EditCategory />} />
+              <Route path="/product/edit/:id" exact element={<EditProduct />} />
               <Route path="/categories" exact element={<CategoryList />} />
               <Route path="/introduce" exact element={<Introduce />} />
               <Route path="/signup" exact element={<SignUp />} />
               <Route path="/login" exact element={<Login />} />
-              <Route path="/AddProduct" exact element={<AddProduct />} />
-              <Route path="/AddCategory" exact element={<AddCategory />} />
-              <Route path="/AddBrand" exact element={<AddBrand />} />
+              <Route path="/product/add" exact element={<AddProduct />} />
+              <Route path="/category/add" exact element={<AddCategory />} />
+              <Route path="/brand/add" exact element={<AddBrand />} />
             </Routes>
           </main>
           <Footer />

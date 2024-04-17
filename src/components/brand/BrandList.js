@@ -53,6 +53,7 @@ const BrandList = () => {
   return (
     <div>
       <h2>Brand List</h2>
+      <Link className="btn btn-primary" to="/brand/add">Thêm nhãn hiệu</Link>
       <table border="1">
         <thead>
           <tr>

@@ -69,7 +69,7 @@ const AddBrand = () => {
                <button style={{marginRight: '60px'}} type="submit" className="btn btn-primary btn-block">
                 Submit
               </button>
-              <Link to="/" className="btn btn-secondary btn-block">
+              <Link to="/brands" className="btn btn-secondary btn-block">
                 Cancel
               </Link>
               </div>
