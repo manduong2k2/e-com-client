@@ -68,8 +68,8 @@ const EditBrand = () => {
         },
       });
       if(response.status===200){
-        alert(response.data.message);
-        navigate('/brands');
+        console.log(response.data.request);
+        window.location.href='/brands'
       }
       else{
         alert(response.data.message);

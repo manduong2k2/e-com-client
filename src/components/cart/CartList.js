@@ -15,6 +15,7 @@ const CartList = () => {
           },
         });
         setCartItems(response.data);
+        document.getElementById('num-cart').innerHTML= response.data.length;
         setLoading(false);
       } catch (error) {
         console.error("Error fetching cart items:", error);
@@ -24,6 +25,7 @@ const CartList = () => {
     fetchCartItems();
   }, [cartItems]);
 const RemoveAllItem = async () => {
+  if(window.confirm("Bạn có chắc muốn xoá sản phẩm này không?"))
     try {
       const response = await axios.delete(
         "http://jul2nd.ddns.net/api/cart/deleteAll" ,
@@ -33,13 +35,14 @@ const RemoveAllItem = async () => {
           },
         }
       );
-      console.log("abc");
+      alert('Đã xoá hết tất cả sản phẩm')
     //   setCartItems(cartItems.filter((item) => item.product.id !== productId));
     } catch (error) {
       console.error("Error removing item from cart:", error);
     }
   };
   const removeFromCart = async (productId) => {
+    if(window.confirm("Bạn có chắc muốn xoá sản phẩm này không?"))
     try {
       const response = await axios.delete(
         "http://jul2nd.ddns.net/api/cart/delete/" + productId,
@@ -49,7 +52,7 @@ const RemoveAllItem = async () => {
           },
         }
       );
-      console.log(response.data.message);
+      alert('Đã xoá sản phẩm khỏi giỏ hàng');
       setCartItems(cartItems.filter((item) => item.product.id !== productId));
     } catch (error) {
       console.error("Error removing item from cart:", error);

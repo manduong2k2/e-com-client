@@ -36,6 +36,19 @@ const Product = ({ product }) => {
         console.log('error: ' + error.response.data.message);
       }
     }
+    const fetchCartItems = async () => {
+      try {
+        const response = await axios.get("http://jul2nd.ddns.net/api/carts", {
+          headers: {
+            Authorization: "Bearer " + getCookie("token"),
+          },
+        });
+        document.getElementById('num-cart').innerHTML= response.data.length;
+      } catch (error) {
+        console.error("Error fetching cart items:", error);
+      }
+    };
+    fetchCartItems();
   };
 
   return (

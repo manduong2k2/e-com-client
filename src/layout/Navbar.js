@@ -6,6 +6,7 @@ import "../css/bootstrap.min.css";
 import React, { useState, useEffect } from "react";
 import { Link,useLocation,useNavigate } from "react-router-dom";
 import { jwtDecode } from 'jwt-decode';
+import axios from "axios";
 
 
 function getCookie(name) {
@@ -43,12 +44,26 @@ function Navbar() {
   const [token, setToken] = useState(getCookie("token"));
   const [name, setName] = useState(getCookie("name"));
   const [image, setImage] = useState(getCookie("image"));
+  
 
   useEffect(() => {
     setToken(getCookie("token"));
     setName(getCookie("name"));
     setImage(getCookie("image"));
     if(token) setIsAdmin(jwtDecode(token).roles.some(role => role.id === 2));
+    const fetchCartItems = async () => {
+      try {
+        const response = await axios.get("http://jul2nd.ddns.net/api/carts", {
+          headers: {
+            Authorization: "Bearer " + getCookie("token"),
+          },
+        });
+        document.getElementById('num-cart').innerHTML= response.data.length;
+      } catch (error) {
+        console.error("Error fetching cart items:", error);
+      }
+    };
+    fetchCartItems();
   }, [location.pathname]); 
 
   const toggleDropdown = () => {
@@ -156,7 +171,7 @@ function Navbar() {
 
                 </Link>
               {/* </a> */}
-              <p id="num-cart">0</p>
+              <p id="num-cart"></p>
             </li>
             <li className="user-dropdown nav-item dropdown" id="log">
               {/* <div  style={{ display: "flex" }}> */}
