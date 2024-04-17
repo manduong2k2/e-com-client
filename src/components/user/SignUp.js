@@ -98,13 +98,13 @@ const SignUp = () => {
                     <input name="password"
                     id="form3Example4"
                     className="form-control"
-                    placeholder='password' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    placeholder='Mật khẩu' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 {error && <div style={{color: 'red'}}>{error}</div>}
                 <button className='btn btn-primary btn-block mx-auto d-block mb-4'
-                   type="submit">Sign Up</button>
+                   type="submit">Đăng ký</button>
                 <div  className="text-center">
-                <p>Already have an account? <Link to='/login'>Login</Link></p>
+                <p>Bạn đã có tài khoản? <Link to='/login'>Đăng nhập</Link></p>
                   </div> 
             </form>
             </div>

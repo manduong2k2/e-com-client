@@ -59,7 +59,7 @@ const ProductDetail = () => {
   }
 
   if (!product) {
-    return <p>Product not found.</p>;
+    return <p>Không tìm thấy sản phẩm.</p>;
   }
 
   return (

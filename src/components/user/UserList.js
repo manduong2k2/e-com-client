@@ -60,8 +60,8 @@ const UserList = () => {
     }
   };
   return (
-    <div>
-      <h2>User List</h2>
+    <div className="container form-container">
+      <h2>Danh sách người dùng</h2>
       <table border="1">
         <thead>
           <tr>

@@ -75,27 +75,27 @@ const AddProduct = () => {
             <h1>Thêm sản phẩm</h1>
             <form onSubmit={handleSignup}>
               <div className="form-group">
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name">Tên sản phẩm:</label>
                 <input type="text" className="form-control" id="name" value={name} onChange={(e) => setName(e.target.value)} />
               </div>
               <div className="form-group">
-                <label htmlFor="stock">Stock:</label>
+                <label htmlFor="stock">Số lượng tồn:</label>
                 <input type="text" className="form-control" id="stock" value={stock} onChange={(e) => setStock(e.target.value)} />
               </div>
               <div className="form-group">
-                <label htmlFor="price">Price:</label>
+                <label htmlFor="price">Giá:</label>
                 <input type="text" className="form-control" id="price" value={price} onChange={(e) => setPrice(e.target.value)} />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Description:</label>
+                <label htmlFor="description">Mô tả:</label>
                 <input type="text" className="form-control" id="description" value={description} onChange={(e) => setDescription(e.target.value)} />
               </div>
               <div className="form-group">
-                <label htmlFor="image">Image:</label>
-                <input style={{ color: "#ccc" }} type="file" id='productImage' />
+                <label htmlFor="image">Ảnh:</label>
+                <input type="file" id='productImage' />
               </div>
               <div className="form-group">
-                <label htmlFor="category_id">Category:</label>
+                <label htmlFor="category_id">Loại sản phẩm:</label>
                 <select className="form-control" id="category_id" value={category_id} onChange={(e) => setCategory_id(e.target.value)}>
                   {categories.map(category => (
                     <option key={category.id} value={category.id}>{category.name} </option> 
@@ -103,7 +103,7 @@ const AddProduct = () => {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="brand_id">Brand:</label>
+                <label htmlFor="brand_id">Nhãn hiệu:</label>
                 <select className="form-control" id="brand_id" value={brand_id} onChange={(e) => setBrand_id(e.target.value)}>
                   {brands.map(brand => (
                     <option key={brand.id} value={brand.id}>{brand.name} </option> 
@@ -114,10 +114,10 @@ const AddProduct = () => {
               {error && <div style={{color: 'red'}} className="alert alert-danger">{error}</div>}
               <div className="form-group" style={{ margin: '30px' }}>
                 <button style={{ marginRight: '60px' }} type="submit" className="btn btn-primary btn-block">
-                  Submit
+                  Xác nhận
                 </button>
                 <Link to="/" className="btn btn-secondary btn-block">
-                  Cancel
+                  Huỷ
                 </Link>
               </div>
             </form>

@@ -85,10 +85,10 @@ const EditBrand = () => {
       <div className="col-md-6">
         <div className="card" style={{ margin: "30px" }}>
           <div className="card-body">
-            <h1>Edit Brand</h1>
+            <h1>Chỉnh sửa nhãn hiệu</h1>
             <form onSubmit={handleUpdateBrand}>
               <div className="form-group">
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name">Tên loại nhãn hiệu:</label>
                 <input
                   type="text"
                   className="form-control"
@@ -99,7 +99,7 @@ const EditBrand = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="image">Image:</label>
+                <label htmlFor="image">Ảnh:</label>
                 <img
                   src={image}
                   id="imagePreview"
@@ -111,7 +111,7 @@ const EditBrand = () => {
                 <input onChange={handleImageChange} type="file" id="brandImage" style={{ display: "none" }} />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Description:</label>
+                <label htmlFor="description">Mô tả:</label>
                 <input
                   type="text"
                   name="description"
@@ -132,10 +132,10 @@ const EditBrand = () => {
                   type="submit"
                   className="btn btn-primary btn-block"
                 >
-                  Submit
+                  Xác nhận
                 </button>
                 <Link to="/brands" className="btn btn-secondary btn-block">
-                  Cancel
+                  Huỷ
                 </Link>
               </div>
             </form>

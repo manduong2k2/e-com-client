@@ -56,9 +56,9 @@ const CategoryList = () => {
       });
   }, []);
   return (
-    <div>
-      <h2>Category List</h2>
-        <Link className="btn btn-primary" to="/category/add">Thêm loại sản phẩm</Link>
+    <div className="container form-container">
+      <h2>Danh sách loại sản phẩm</h2>
+        <Link className="btn-add btn btn-primary" to="/category/add">Thêm loại sản phẩm</Link>
       <table border="1">
         <thead>
           <tr>

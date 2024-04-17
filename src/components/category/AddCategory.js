@@ -44,7 +44,7 @@ const AddCategory = () => {
             <h1>Thêm Loại sản phẩm</h1>
             <form onSubmit={handleSignup}>
               <div className="form-group">
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name">Tên loại sản phẩm:</label>
                 <input
                   type="text"
                   className="form-control"

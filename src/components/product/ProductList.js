@@ -51,17 +51,17 @@ const ProductList = () => {
       });
   }, []);
   return (
-    <div>
-      <h2>Product List</h2>
+    <div className="container form-container">
+      <h2>Danh sách sản phẩm</h2>
       <table border="1">
         <thead>
           <tr>
             <th>id</th>
-            <th>Tên sản phẩm</th>
+            <th style={{width: "15%"}}>Tên sản phẩm</th>
             <th>Số lượng tồn</th>
             <th>Giá</th>
             <th>Ảnh</th>
-            <th>Mô tả</th>
+            <th style={{width: "30%"}}>Mô tả</th>
             <th>Loại</th>
             <th>Nhãn hiệu</th>
             <th>action</th>

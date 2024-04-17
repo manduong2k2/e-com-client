@@ -50,7 +50,7 @@ const AddBrand = () => {
             <h1>Thêm nhãn hiệu</h1>
             <form onSubmit={handleSignup}>
               <div className="form-group">
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name">Tên nhãn hiệu:</label>
                 <input
                   type="text"
                   className="form-control"
@@ -60,7 +60,7 @@ const AddBrand = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="image">Image:</label>
+                <label htmlFor="image">Ảnh:</label>
                 <input
                   type="file"
                   className="form-control-file"
@@ -69,7 +69,7 @@ const AddBrand = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Description:</label>
+                <label htmlFor="description">Mô tả:</label>
                 <input
                   type="text"
                   className="form-control"
@@ -81,10 +81,10 @@ const AddBrand = () => {
               {error && <div style={{color: 'red'}} className="alert alert-danger">{error}</div>}
              <div className="form-group" style={{margin: '30px'}}>
                <button style={{marginRight: '60px'}} type="submit" className="btn btn-primary btn-block">
-                Submit
+                Xác nhận
               </button>
               <Link to="/brands" className="btn btn-secondary btn-block">
-                Cancel
+                Huỷ
               </Link>
               </div>
             </form>

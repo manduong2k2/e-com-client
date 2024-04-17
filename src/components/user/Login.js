@@ -105,14 +105,14 @@ const Login = () => {
                   {error && <div style={{color: 'red'}}>{error}</div>}
                   <button
                   className='btn btn-primary btn-block mx-auto d-block mb-4'
-                  type="submit">Login</button>
+                  type="submit">Đăng nhập</button>
                   <div  className="text-center">
                     <p>
                       <a href="/forgot" >Quên mật khẩu?</a>
                     </p>
                   </div>  
                   <div  className="text-center">
-                  <p>Doesn't have an account? <Link to='/signup'>Sign Up</Link></p>
+                  <p>Bạn chưa có tài khoản? <Link to='/signup'>Đăng ký</Link></p>
                   </div>           
                 </form>
               </div>

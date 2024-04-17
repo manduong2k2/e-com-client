@@ -26,7 +26,13 @@ h1 {
   display: flex;
   flex-direction: column;
 }
-
+.btn-add{
+  margin: 10px;
+  margin-right: 84%;
+}
+h2{
+  margin-right: 70%;
+}
 .product-item img {
   margin: auto;
   height: 250px;

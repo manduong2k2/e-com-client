@@ -117,10 +117,10 @@ const EditProduct = () => {
       <div className="col-md-6">
         <div className="card" style={{ margin: "30px" }}>
           <div className="card-body">
-            <h1>Edit Product</h1>
+            <h1>Chỉnh sửa sản phẩm</h1>
             <form onSubmit={handleUpdateProduct}>
               <div className="form-group">
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name">Tên sản phẩm:</label>
                 <input
                   type="text"
                   className="form-control"
@@ -130,7 +130,7 @@ const EditProduct = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="stock">Stock:</label>
+                <label htmlFor="stock">Số lượng tồn:</label>
                 <input
                   type="text"
                   className="form-control"
@@ -140,7 +140,7 @@ const EditProduct = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="price">Price:</label>
+                <label htmlFor="price">Giá:</label>
                 <input
                   type="text"
                   className="form-control"
@@ -150,7 +150,7 @@ const EditProduct = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Description:</label>
+                <label htmlFor="description">Mô tả:</label>
                 <input
                   type="text"
                   className="form-control"
@@ -160,7 +160,7 @@ const EditProduct = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="image">Image:</label>
+                <label htmlFor="image">Ảnh:</label>
                 <img
                   src={image}
                   id="imagePreview"
@@ -177,7 +177,7 @@ const EditProduct = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="category_id">Category:</label>
+                <label htmlFor="category_id">Loại sản phẩm:</label>
                 <select
                   className="form-control"
                   id="category_id"
@@ -192,7 +192,7 @@ const EditProduct = () => {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="brand_id">Brand:</label>
+                <label htmlFor="brand_id">Nhãn hiệu:</label>
                 <select
                   className="form-control"
                   id="brand_id"
@@ -217,10 +217,10 @@ const EditProduct = () => {
                   type="submit"
                   className="btn btn-primary btn-block"
                 >
-                  Submit
+                  Xác nhận
                 </button>
                 <Link to="/products" className="btn btn-secondary btn-block">
-                  Cancel
+                  Huỷ
                 </Link>
               </div>
             </form>

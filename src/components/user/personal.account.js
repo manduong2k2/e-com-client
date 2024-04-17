@@ -150,20 +150,20 @@ const PersonalAccount = () => {
             />
           </div>
           <div class="form-group">
-            <label for="accountEmail">Password:</label>
+            <label for="accountEmail">Mật khẩu:</label>
             <input
               className="form-control"
-              placeholder="password"
+              placeholder="Mật khẩu"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div class="form-group">
-            <label for="accountEmail">Comfirm password:</label>
+            <label for="accountEmail">Xác nhận lại mật khẩu:</label>
             <input
               className="form-control"
-              placeholder="Comfirm password"
+              placeholder="Xác nhận lại mật khẩu"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

@@ -65,10 +65,10 @@ const EditCategory = () => {
       <div className="col-md-6">
         <div className="card" style={{ margin: "30px" }}>
           <div className="card-body">
-            <h1>Edit Category</h1>
+            <h1>Chỉnh sửa loại sản phẩm</h1>
             <form onSubmit={handleUpdateCategory}>
               <div className="form-group">
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name">Tên loại sản phẩm:</label>
                 <input
                   type="text"
                   className="form-control"
@@ -88,10 +88,10 @@ const EditCategory = () => {
                   type="submit"
                   className="btn btn-primary btn-block"
                 >
-                  Submit
+                  Xác nhận
                 </button>
                 <Link to="/categories" className="btn btn-secondary btn-block">
-                  Cancel
+                  Huỷ
                 </Link>
               </div>
             </form>
