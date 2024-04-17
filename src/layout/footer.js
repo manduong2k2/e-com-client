@@ -44,22 +44,22 @@ function Footer() {
                   </a>
                 </p>
                 <p>
-                  <a
+                  <Link
                     className="text-white"
                     style={{ cursor: "pointer" }}
-                    onClick="Introduce(); changeActiveState('introduce-nav')"
+                    to="/introduce"
                   >
                     Giới thiệu
-                  </a>
+                  </Link>
                 </p>
                 <p>
-                  <a
+                  <Link
                     className="text-white"
                     style={{ cursor: "pointer" }}
-                    onClick="ProductView(); changeActiveState('product-nav')"
+                    to="/"
                   >
                     Sản phẩm
-                  </a>
+                  </Link>
                 </p>
                 <p>
                   <a
