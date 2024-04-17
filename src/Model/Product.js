@@ -31,9 +31,8 @@ const Product = ({ product }) => {
       if(response.status===200){
         alert('Product added to cart !');
       }
-      
     } catch (error) {
-      console.log('error: '+error.response.data.message);
+      console.log('error: '+ error.response.data.message);
     }
   };
 
@@ -58,7 +57,7 @@ const Product = ({ product }) => {
                 </button>
             </form>
             <div>
-              <a href="#" className="btn btn-cart">Thông tin</a>
+              <Link to={"/product/detail/"  + id} className="btn btn-cart">Thông tin</Link>
             </div>
           </div>
         {/* </div> */}

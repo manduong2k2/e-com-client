@@ -40,7 +40,6 @@ function Navbar() {
   const [showDropdown, setShowDropdown] = useState(false);
   const location = useLocation();
   const [isAdmin, setIsAdmin] = useState(false);
-  
   const [token, setToken] = useState(getCookie("token"));
   const [name, setName] = useState(getCookie("name"));
   const [image, setImage] = useState(getCookie("image"));
@@ -146,13 +145,17 @@ function Navbar() {
               </form>
             </li>
             <li className="nav-item" id="li-cart" style={{ width: "80px" }}>
-              <a className="nav-link" id="cart">
+              {/* <a className="nav-link" id="cart"> */}
+                <Link className="nav-link" id="cart" to="/carts">
+
                 <img
                   src={cartImage}
                   title="Giỏ hàng"
                   style={{ height: "28px" }}
                 />
-              </a>
+
+                </Link>
+              {/* </a> */}
               <p id="num-cart">0</p>
             </li>
             <li className="user-dropdown nav-item dropdown" id="log">

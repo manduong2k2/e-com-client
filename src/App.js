@@ -15,8 +15,10 @@ import EditProduct from "./components/product/EditProduct";
 import EditCategory from "./components/category/EditCategory";
 import Introduce from "./components/Introduce";
 import UserList from "./components/user/UserList";
+import CartList from "./components/cart/CartList";
 import BrandList from "./components/brand/BrandList";
 import ProductList from "./components/product/ProductList";
+import ProductDetail from "./components/product/ProductDetail";
 import CategoryList from "./components/category/CategoryList";
 import PersonalAccount from "./components/user/personal.account";
 
@@ -41,7 +43,9 @@ function App() {
               <Route path="/users" exact element={<UserList />} />
               <Route path="/user/manage" exact element={<PersonalAccount />} />
               <Route path="/brands" exact element={<BrandList />} />
+              <Route path="/carts" exact element={<CartList />} />
               <Route path="/products" exact element={<ProductList />} />
+              <Route path="/product/detail/:id" exact element={<ProductDetail />} />
               <Route path="/brand/edit/:id" exact element={<EditBrand />} />
               <Route path="/category/edit/:id" exact element={<EditCategory />} />
               <Route path="/product/edit/:id" exact element={<EditProduct />} />
