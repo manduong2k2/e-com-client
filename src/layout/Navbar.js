@@ -150,15 +150,7 @@ function Navbar() {
               )}
             </li>
             )}
-            <li id="search-nav" className="nav-item search-bar">
-              <form>
-                <input
-                  id="search-bar"
-                  type="search"
-                  placeholder="&#128269;Tìm kiếm sản phẩm..."
-                />
-              </form>
-            </li>
+            
             <li className="nav-item" id="li-cart" style={{ width: "80px" }}>
               {/* <a className="nav-link" id="cart"> */}
                 <Link className="nav-link" id="cart" to="/carts">

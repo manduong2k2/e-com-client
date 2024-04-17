@@ -159,24 +159,28 @@ nav {
   background-color: transparent !important;
   backdrop-filter: saturate(200%) blur(15px);
 }
-
+.selected1{
+  margin-left: 30px;
+}
 input[type="search"] {
   width: 170px;
   padding: 8px 20px 8px;
-  border: #ffffff62 solid 2px;
+  border: #000 solid 2px;
   font-size: 18px;
   border-radius: 25px;
   background-position: 2% 50%;
+  margin-top: 10px;
   background-repeat: no-repeat;
   background-size: 30px;
   background-color: transparent;
   transition: 0.5s all ease-in-out;
   filter: brightness(170%);
   text-overflow: ellipsis;
-  position: absolute;
   right: 250px;
   bottom: 5px;
-  margin-bottom: 12px;
+}
+.selected{
+  width: 300px;
 }
 label{
   font-weight: bold;

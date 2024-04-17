@@ -53,7 +53,6 @@ const ProductList = () => {
   return (
     <div>
       <h2>Product List</h2>
-      <Link className="btn btn-primary" to="/product/add">Thêm sản phẩm</Link>
       <table border="1">
         <thead>
           <tr>
