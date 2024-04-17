@@ -88,7 +88,7 @@ const EditProduct = () => {
       formData.append("brand_id", brand_id);
       if (image) formData.append("image", image);
       formData.append("description", description);
-      const response = await axios.patch(
+      const response = await axios.post(
         "http://jul2nd.ddns.net/api/product/edit/" + id,
         formData,
         {

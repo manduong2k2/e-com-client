@@ -61,16 +61,15 @@ const EditBrand = () => {
       if (image)
         formData.append('image', image);
       formData.append('description', description);
-      console.log(name + ': ' + description);
-      const response = await axios.patch("http://jul2nd.ddns.net/api/brand/edit/" + id, formData, {
+      const response = await axios.post("http://jul2nd.ddns.net/api/brand/edit/" + id,formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
-          'Authorization': 'Bearer ' + getCookie('token')
+          "Content-Type":'multipart/form-data',
+          Authorization: 'Bearer ' + getCookie('token')
         },
       });
       if(response.status===200){
-        console.log(response.data.request);
-        // navigate('/brands');
+        console.log(response.data.message);
+        navigate('/brands');
       }
       else{
         alert(response.data.message);
@@ -95,6 +94,7 @@ const EditBrand = () => {
                 <input
                   type="text"
                   className="form-control"
+                  name="name"
                   id="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -110,12 +110,13 @@ const EditBrand = () => {
                   style={{ cursor: "pointer" }}
                   onClick={handleImagePreviewClick}
                 />
-                <input onChange={handleImageChange} type="file" id="brandImage" style={{ display: "none" }} />
+                <input name="image" onChange={handleImageChange} type="file" id="brandImage" style={{ display: "none" }} />
               </div>
               <div className="form-group">
                 <label htmlFor="description">Description:</label>
                 <input
                   type="text"
+                  name="description"
                   className="form-control"
                   id="description"
                   value={description}

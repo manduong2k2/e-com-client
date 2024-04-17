@@ -56,7 +56,7 @@ const PersonalAccount = () => {
     formData.append("email", email);
     formData.append("password", password);
     try {
-      const response = await axios.patch(
+      const response = await axios.post(
         "http://jul2nd.ddns.net/user/edit",
         formData,
         {
