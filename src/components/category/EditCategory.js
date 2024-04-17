@@ -16,7 +16,7 @@ const EditCategory = () => {
         setName(response.data.category.name);
       })
       .catch((error) => {
-        console.error("Error fetching categories:", error.response);
+        console.error("Error fetching category:", error);
       });
   }, []);
 
@@ -40,9 +40,8 @@ const EditCategory = () => {
     try {
       const formData = new FormData();
       formData.append('name', name);
-      const response = await axios.patch("http://jul2nd.ddns.net/api/category/edit/" + id, formData, {
+      const response = await axios.post("http://jul2nd.ddns.net/api/category/edit/" + id, formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
           'Authorization': 'Bearer ' + getCookie('token')
         },
       });
