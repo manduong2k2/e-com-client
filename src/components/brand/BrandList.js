@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const BrandList = () => {
   const [brands, setBrands] = useState([]);
   const navigate = useNavigate();
@@ -19,16 +19,16 @@ const BrandList = () => {
     const result = window.confirm("Bạn có chắc muốn xoá nhãn hiệu này không?");
     if (result) {
       try {
-        const response = await axios.delete("http://jul2nd.ddns.net/api/brand/delete/" + id,{}, {
+        const response = await axios.delete("http://jul2nd.ddns.net/api/brand/delete/" + id, {}, {
           headers: {
             'Authorization': 'Bearer ' + getCookie('token')
           },
         });
-        if(response.status===200){
+        if (response.status === 200) {
           alert('Xoá nhãn hiệu thành công !');
-          window.location.href='/brands'
+          window.location.href = '/brands'
         }
-        else{
+        else {
           alert(response.data.message);
         }
       } catch (error) {
@@ -74,9 +74,7 @@ const BrandList = () => {
               <td>{brand.description}</td>
               <td>
                 <div className="form-group">
-                  <button className="btn btn-primary " style={{margin: 20}}>
-                    <Link to={'/brand/edit/' + brand.id} ></Link>Sửa
-                  </button>
+                    <Link style={{ margin: 20 }} className="btn btn-primary btn-lock" to={'/brand/edit/' + brand.id}>Sửa</Link>
                   <button className="btn btn-danger btn-block" onClick={() => Delete(brand.id)}>Xoá</button>
                 </div>
               </td>
