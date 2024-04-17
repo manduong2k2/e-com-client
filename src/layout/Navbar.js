@@ -196,17 +196,17 @@ function Navbar() {
                     </li>
                     <li>
                       <Link to="" onClick={handleLogout}>
-                        Logout
+                        Đăng xuất
                       </Link>
                     </li>
                     </>
                   ) : (
                     <>
                       <li>
-                        <Link to="/signup">Sign Up</Link>
+                        <Link to="/signup">Đăng ký</Link>
                       </li>
                       <li>
-                        <Link to="/login">Login</Link>
+                        <Link to="/login">Đăng nhập</Link>
                       </li>
                     </>
                   )}

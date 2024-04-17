@@ -10,7 +10,9 @@ h1 {
     flex-wrap: wrap;
     justify-content: space-between;
   }*/
-
+.form-container{
+  margin-bottom: 10px;
+}
 .col-md-3 {
   width: 20%;
 }
