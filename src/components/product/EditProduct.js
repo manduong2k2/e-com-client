@@ -29,19 +29,21 @@ const EditProduct = () => {
     return "";
   }
   useEffect(() => {
+    fetchBrandsAndCategories();
     axios
-      .get("http://jul2nd.ddns.net/api/product/" + id, {
+      .get("http://jul2nd.ddns.net/api/products/" + id, {
         headers: {
           Authorization: "Bearer " + getCookie("token"),
         },
       })
       .then((response) => {
+        console.log(response.data);
         setName(response.data.product.name);
         setStock(response.data.product.stock);
         setPrice(response.data.product.price);
         setDescription(response.data.product.description);
-        setCategories(response.data.product.categories);
-        setBrands(response.data.product.brands);
+        setCategories(response.data.product.category.name);
+        setBrands(response.data.product.brand.name);
         setImage(response.data.product.image);
       })
       .catch((error) => {
@@ -81,8 +83,8 @@ const EditProduct = () => {
       formData.append("stock", stock);
       formData.append("price", price);
       formData.append("description", description);
-      formData.append("categories", categories);
-      formData.append("brands", brands);
+      formData.append("category", categories);
+      formData.append("brand", brands);
       if (image) formData.append("image", image);
       formData.append("description", description);
       const response = await axios.patch(
@@ -159,7 +161,6 @@ const EditProduct = () => {
               <div className="form-group">
                 <label htmlFor="image">Image:</label>
                 <input
-                  style={{ color: "#ccc" }}
                   type="file"
                   id="productImage"
                 />

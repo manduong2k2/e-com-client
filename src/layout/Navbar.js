@@ -124,6 +124,9 @@ function Navbar() {
                     <Link to="/users">Tài khoản</Link>
                   </li>
                   <li>
+                    <Link to="/products">Sản phẩm</Link>
+                  </li>
+                  <li>
                     <Link to="/brands">Nhãn hiệu</Link>
                   </li>
                   <li>
@@ -174,6 +177,11 @@ function Navbar() {
                     <li>
                       <Link to="/user/manage">
                         Quản lý tài khoản
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/user/manage">
+                        Quản lý sản phẩm
                       </Link>
                     </li>
                     <li>
