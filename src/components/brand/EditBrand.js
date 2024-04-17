@@ -68,17 +68,15 @@ const EditBrand = () => {
         },
       });
       if(response.status===200){
-        console.log(response.data.message);
+        alert(response.data.message);
         navigate('/brands');
       }
       else{
         alert(response.data.message);
       }
-
-      // Xử lý phản hồi từ backend ở đây
     } catch (error) {
       setError("Failed to update brand. Please try again.");
-      console.log(error);
+      console.log(error.response.data.message);
     }
   };
 
@@ -110,7 +108,7 @@ const EditBrand = () => {
                   style={{ cursor: "pointer" }}
                   onClick={handleImagePreviewClick}
                 />
-                <input name="image" onChange={handleImageChange} type="file" id="brandImage" style={{ display: "none" }} />
+                <input onChange={handleImageChange} type="file" id="brandImage" style={{ display: "none" }} />
               </div>
               <div className="form-group">
                 <label htmlFor="description">Description:</label>
