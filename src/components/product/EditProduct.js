@@ -30,8 +30,7 @@ const EditProduct = () => {
   }
   useEffect(() => {
     fetchBrandsAndCategories();
-    axios
-      .get("http://jul2nd.ddns.net/api/products/" + id, {
+    axios.get("http://jul2nd.ddns.net/api/products/" + id, {
         headers: {
           Authorization: "Bearer " + getCookie("token"),
         },
@@ -41,9 +40,9 @@ const EditProduct = () => {
         setName(response.data.product.name);
         setStock(response.data.product.stock);
         setPrice(response.data.product.price);
+        setCategory_id(response.data.product.category_id);
+        setBrand_id(response.data.product.brand_id);
         setDescription(response.data.product.description);
-        setCategories(response.data.product.category.name);
-        setBrands(response.data.product.brand.name);
         setImage(response.data.product.image);
       })
       .catch((error) => {
@@ -83,12 +82,11 @@ const EditProduct = () => {
       formData.append("stock", stock);
       formData.append("price", price);
       formData.append("description", description);
-      formData.append("category", categories);
-      formData.append("brand", brands);
+      formData.append("category_id", category_id);
+      formData.append("brand_id", brand_id);
       if (image) formData.append("image", image);
       formData.append("description", description);
-      const response = await axios.patch(
-        "http://jul2nd.ddns.net/api/product/edit/" + id,
+      const response = await axios.patch("http://jul2nd.ddns.net/api/product/edit/" + id,
         formData,
         {
           headers: {
@@ -160,6 +158,7 @@ const EditProduct = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="image">Image:</label>
+                <img src={image} height={30} width={30}/>
                 <input
                   type="file"
                   id="productImage"
