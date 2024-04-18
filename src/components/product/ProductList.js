@@ -61,11 +61,11 @@ const ProductList = () => {
           <tr>
             <th>Người bán</th>
             <th>Mã sản phẩm</th>
-            <th style={{ width: "15%" }}>Tên sản phẩm</th>
+            <th style={{ width: "10%" }}>Tên sản phẩm</th>
             <th>Số lượng tồn</th>
             <th>Giá</th>
-            <th>Ảnh</th>
-            <th style={{ width: "30%" }}>Mô tả</th>
+            <th style={{ width: "10%" }}>Ảnh</th>
+            <th style={{ width: "25%" }}>Mô tả</th>
             <th>Loại</th>
             <th>Nhãn hiệu</th>
             <th>Hành động</th>
