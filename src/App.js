@@ -22,6 +22,7 @@ import ProductList from "./components/product/ProductList";
 import ProductDetail from "./components/product/ProductDetail";
 import CategoryList from "./components/category/CategoryList";
 import PersonalAccount from "./components/user/personal.account";
+import ChangePassword from "./components/user/Changepass";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
               <Route path="/" exact element={<Home />} />
               <Route path="/users" exact element={<UserList />} />
               <Route path="/user/manage" exact element={<PersonalAccount />} />
+              <Route path="/user/changePassword" exact element={<ChangePassword />} />
               <Route path="/brands" exact element={<BrandList />} />
               <Route path="/carts" exact element={<CartList />} />
               <Route path="/products" exact element={<ProductList />} />
