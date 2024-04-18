@@ -73,10 +73,10 @@ const OrderHistory = () => {
                   <td>{order.date}</td>
                   <td>{order.items.map((item)=>(
                     <tr>
-                        <td>{item.product.name}</td>
-                        <td>{item.product.stock}</td>
-                        <td>{item.product.price}</td>
-                        <td><img src={item.product.image}></img></td>
+                        <td style={{width: '20%'}}>{item.product.name}</td>
+                        <td style={{width: '20%'}}>{item.quantity}</td>
+                        <td style={{width: '20%'}}>{item.product.price}</td>
+                        <td style={{width: '40%'}}><img style={{width: '40%'}} width="140px" src={item.product.image}></img></td>
                     </tr>
                   ))}</td>
                   <td>
