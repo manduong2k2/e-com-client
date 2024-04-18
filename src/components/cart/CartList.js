@@ -229,7 +229,7 @@ const CartList = () => {
               <button
                 className="btn btn-success"
                 style={{ margin: "0px 15px" }}
-                onclick={handleCheckOut()}
+                onClick={() => handleCheckOut()}
               >
                 Proceed to Checkout
                 <svg
