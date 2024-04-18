@@ -96,7 +96,7 @@ const PersonalAccount = () => {
         }}
         class="form-group"
       >
-        <h2>Thông tin tài khoản</h2>
+        <h1>Thông tin tài khoản</h1>
         {image ? ( // Check if image cookie exists
           <img
             style={{
@@ -150,10 +150,20 @@ const PersonalAccount = () => {
             />
           </div>
           <div class="form-group">
-            <label for="accountEmail">Mật khẩu:</label>
+            <label for="accountEmail">Mật khẩu hiện tại:</label>
             <input
               className="form-control"
               placeholder="Mật khẩu"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div class="form-group">
+            <label for="accountEmail">Mật khẩu mới:</label>
+            <input
+              className="form-control"
+              placeholder="Mật khẩu mới"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

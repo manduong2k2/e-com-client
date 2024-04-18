@@ -3,6 +3,7 @@ import "./App.css";
 import React, { Component } from "react";
 import Login from "./components/user/Login";
 import SignUp from "./components/user/SignUp";
+import Forgot from "./components/user/Forgot";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Navbar from "../src/layout/Navbar";
@@ -53,6 +54,7 @@ function App() {
               <Route path="/introduce" exact element={<Introduce />} />
               <Route path="/signup" exact element={<SignUp />} />
               <Route path="/login" exact element={<Login />} />
+              <Route path="/forgot" exact element={<Forgot />} />
               <Route path="/product/add" exact element={<AddProduct />} />
               <Route path="/category/add" exact element={<AddCategory />} />
               <Route path="/brand/add" exact element={<AddBrand />} />

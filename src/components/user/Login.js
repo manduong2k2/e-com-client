@@ -85,7 +85,7 @@ const Login = () => {
             <div className="card bg-glass">
               <div style={{ display: 'flex', justifyContent: 'center' }} className="card-body px-4 py-5 px-md-5">
                 <form onSubmit={handleLogin}>
-                <h1 className="mb-3 h3 text-center">Login</h1>
+                <h1 className="mb-3 h3 text-center">Đăng nhập</h1>
                   <div className="form-outline mb-4">
                     <input name="email"
                       id="form3Example3"
