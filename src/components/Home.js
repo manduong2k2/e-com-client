@@ -14,23 +14,27 @@ const Home = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            // Fetch danh sách sản phẩm
-            const productsResponse = await axios.get(
-                "http://jul2nd.ddns.net/api/products"
-            );
-            setProducts(productsResponse.data);
+            try {
+                // Fetch danh sách sản phẩm
+                const productsResponse = await axios.get(
+                    "http://jul2nd.ddns.net/api/products"
+                );
+                setProducts(productsResponse.data);
 
-            // Fetch danh sách thương hiệu
-            const brandsResponse = await axios.get(
-                "http://jul2nd.ddns.net/api/brands"
-            );
-            setBrands(brandsResponse.data);
+                // Fetch danh sách thương hiệu
+                const brandsResponse = await axios.get(
+                    "http://jul2nd.ddns.net/api/brands"
+                );
+                setBrands(brandsResponse.data);
 
-            // Fetch danh sách danh mục
-            const categoriesResponse = await axios.get(
-                "http://jul2nd.ddns.net/api/categories"
-            );
-            setCategories(categoriesResponse.data);
+                // Fetch danh sách danh mục
+                const categoriesResponse = await axios.get(
+                    "http://jul2nd.ddns.net/api/categories"
+                );
+                setCategories(categoriesResponse.data);
+            } catch (err) {
+                console.log(err);
+            }
         };
         fetchData();
     }, []);
@@ -100,7 +104,7 @@ const Home = () => {
             <form >
                 <input className="form-control" type="search" onChange={Search} placeholder="&#128269;Tìm kiếm sản phẩm..." />
             </form>
-                
+
             <div style={{ border: "none" }} className="row row-cols-1 row-cols-md-2 row-cols-lg-3" >
                 {filteredProducts.map((product) => (
                     <div className="col-lg-3 col-md-4 col-sm-6" key={product.id}>
