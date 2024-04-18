@@ -125,13 +125,6 @@ const CartList = () => {
           <table className="table">
             <thead>
               <tr>
-                <th>
-                  <p>Chọn tất cả </p>
-                  <input
-                    style={{ cursor: "pointer", height: "25px", width: "25px" }}
-                    type="checkbox"
-                  />
-                </th>
                 <th>Tên sản phẩm</th>
                 <th>Hình</th>
                 <th>Số lượng</th>
@@ -143,17 +136,6 @@ const CartList = () => {
             <tbody>
               {cartItems.map((item, index) => (
                 <tr key={index} className="productItem">
-                  <td>
-                    <input
-                      className="item-check"
-                      style={{
-                        cursor: "pointer",
-                        height: "25px",
-                        width: "25px",
-                      }}
-                      type="checkbox"
-                    />
-                  </td>
                   <td>{item.product.name}</td>
                   <td>
                     <img
