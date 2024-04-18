@@ -1,58 +1,58 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import bannerImage from '../images/abcd.jpeg';
+import bannerImage from "../images/abcd.jpeg";
 const Introduce = () => {
   return (
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="overlay">
-            <img style={{
-              width:"70%"}}
+            <img
+              style={{
+                width: "70%",
+              }}
               src={bannerImage}
               alt="Your Image Alt Text"
             />
-            <h1 style={{position: "absolute", color: "grey"}}>
+            <h1 style={{ position: "absolute", color: "grey" }}>
               CHÀO MỪNG BẠN ĐẾN VỚI ECOM
             </h1>
           </div>
           <br />
           <h4>Giới thiệu</h4>
           <p>
-            Cảm ơn quý khách đã quan tâm đến sức khỏe, vóc dáng bản thân để Ecom
-            Store (Ecomstore.com) có cơ hội được tiếp cận và hỗ trợ.
+            Cảm ơn quý khách đã đến với ECom Store - nơi tận hưởng công nghệ tốt
+            nhất cho cuộc sống hiện đại của bạn! Tại ECom Store, chúng tôi không
+            chỉ cung cấp các sản phẩm công nghệ hàng đầu mà còn cam kết mang đến
+            trải nghiệm mua sắm tuyệt vời và dịch vụ chăm sóc khách hàng xuất
+            sắc..
             <br />
-            Ecom Store cảm ơn các bạn đã cho chúng tôi cơ hội trở thành người
-            bạn đem đến những sản phẩm và trải nghiệm tuyệt vời từ đội ngũ tư
-            vấn có chuyên môn và nhiệt huyết.
+            ECom Store là địa chỉ tin cậy cho hàng triệu người tiêu dùng trong
+            lĩnh vực công nghệ, đem đến những sản phẩm và trải nghiệm tuyệt vời
+            từ đội ngũ tư vấn chuyên môn và nhiệt huyết của chúng tôi.
             <br />
             Lấy khách hàng là yếu tố quan trọng nhất, hiệu quả của sản phẩm đối
             với từng khách hàng là niềm vui của chúng tôi. Ecom Store luôn là
-            địa chỉ tin cậy cho hàng triệu người tiêu dùng trong lĩnh vực dinh
-            dưỡng thể hình, thể thao.
+            địa chỉ tin cậy cho hàng triệu người tiêu dùng.
             <br />
-            Ecom Store Nhà nhập khẩu và phân phối tư vấn dinh dưỡng thể hình,
-            thể thao cao cấp chính hãng tại Việt Nam.
+            Ecom Store Nhà nhập khẩu và phân phối tư vấn đồ công nghệ cao cấp
+            chính hãng tại Việt Nam.
           </p>
-          <h4>Chúng tôi sẽ giúp được gì cho bạn ??</h4>
+          <h4>Chúng tôi sẽ giúp được gì cho bạn ?</h4>
           <p>
-            Ecom Store vừa là nơi cung cấp nguồn thực phẩm dinh dưỡng bổ xung
-            cho quý khách muốn tăng cường sức khỏe và thay đổi vóc dáng bao gồm:
             <br />
-            – Tăng cân, tăng cơ.
+            – Thiết bị di động: Tận hưởng sự linh hoạt và tiện ích với các sản
+            phẩm di động hàng đầu từ các thương hiệu uy tín.
             <br />
-            – Tăng cơ, giảm mỡ.
+            – Monitor: Chúng tôi cũng có các loại monitor để mở rộng không gian
+            làm việc và tăng cường trải nghiệm sử dụng máy tính.
             <br />
-            – Tăng sức khỏe, sức bền.
+            – TLaptop và PC: Khám phá sự linh hoạt và hiệu suất với các dòng
+            laptop và máy tính bảng hàng đầu trên thị trường.
             <br />
-            – Hỗ trợ sức khỏe.
-            <br />
-            – Thời trang và phụ kiện.
-            <br />
-            Chúng tôi cũng sẽ là nơi hỗ trợ, tư vấn, theo sát các bạn trong suốt
-            quá trình thay đổi bản thân. Hãy liên hệ ngay cho chúng tôi khi bạn
-            cần!
+            Cung cấp các sản phẩm chất lượng và uy tín từ các nhà sản xuất hàng
+            đầu. Dịch vụ chăm sóc khách hàng tận tâm và chuyên nghiệp.
             <br />
             Với phương châm "Bạn cần chúng tôi, chúng tôi cũng cần bạn", Ecom
             Store sẽ là địa chỉ tin cậy, uy tín để bạn thay đổi bản thân. Sản
@@ -72,8 +72,8 @@ const Introduce = () => {
             ngừng tìm kiếm những dòng sản phẩm tốt nhất để đem tới cho khách
             hàng!
             <br />
-            <b>Ecom Store</b> Mong muốn xây đựng một thương hiệu vững mạnh trên
-            thị trường dinh dưỡng và làm đẹp.
+            Hãy trải nghiệm mua sắm tại
+            <b> Ecom Store</b> ngay hôm nay và khám phá thế giới công nghệ đang chờ đón bạn!
             <br />
             <br />
             <b>Xin chân thành cảm ơn quý khách đã lựa chọn chúng tôi!</b>
