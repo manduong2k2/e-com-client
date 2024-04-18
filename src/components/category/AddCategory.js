@@ -39,8 +39,8 @@ const AddCategory = () => {
   return (
     <div className="row justify-content-center">
       <div className="col-md-6">
-        <div className="card" style={{margin: '30px'}}>
-          <div className="card-body">
+        <div style={{margin: '30px'}}>
+          <div>
             <h1>Thêm Loại sản phẩm</h1>
             <form onSubmit={handleSignup}>
               <div className="form-group">

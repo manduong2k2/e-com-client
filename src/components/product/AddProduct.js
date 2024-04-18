@@ -69,62 +69,108 @@ const AddProduct = () => {
 
   return (
     <div className="row justify-content-center">
-      <div className="col-md-6">
-        <div className="card" style={{ margin: '30px' }}>
-          <div className="card-body">
-            <h1>Thêm sản phẩm</h1>
-            <form onSubmit={handleSignup}>
-              <div className="form-group">
-                <label htmlFor="name">Tên sản phẩm:</label>
-                <input type="text" className="form-control" id="name" value={name} onChange={(e) => setName(e.target.value)} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="stock">Số lượng tồn:</label>
-                <input type="text" className="form-control" id="stock" value={stock} onChange={(e) => setStock(e.target.value)} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="price">Giá:</label>
-                <input type="text" className="form-control" id="price" value={price} onChange={(e) => setPrice(e.target.value)} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="description">Mô tả:</label>
-                <input type="text" className="form-control" id="description" value={description} onChange={(e) => setDescription(e.target.value)} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="image">Ảnh:</label>
-                <input type="file" id='productImage' />
-              </div>
-              <div className="form-group">
-                <label htmlFor="category_id">Loại sản phẩm:</label>
-                <select className="form-control" id="category_id" value={category_id} onChange={(e) => setCategory_id(e.target.value)}>
-                  {categories.map(category => (
-                    <option key={category.id} value={category.id}>{category.name} </option> 
-                  ))}
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="brand_id">Nhãn hiệu:</label>
-                <select className="form-control" id="brand_id" value={brand_id} onChange={(e) => setBrand_id(e.target.value)}>
-                  {brands.map(brand => (
-                    <option key={brand.id} value={brand.id}>{brand.name} </option> 
-                  ))}
-                  
-                </select>
-              </div>
-              {error && <div style={{color: 'red'}} className="alert alert-danger">{error}</div>}
-              <div className="form-group" style={{ margin: '30px' }}>
-                <button style={{ marginRight: '60px' }} type="submit" className="btn btn-primary btn-block">
-                  Xác nhận
-                </button>
-                <Link to="/" className="btn btn-secondary btn-block">
-                  Huỷ
-                </Link>
-              </div>
-            </form>
+  <div className="col-md-6">
+    <div  style={{ margin: '30px' }}>
+      <div >
+        <h1>Thêm sản phẩm</h1>
+        <form onSubmit={handleSignup}>
+          <div className="form-group" style={{display:"flex",margin:"10px 0"}}>
+            <label htmlFor="name" style={{width:"30%"}}>Tên sản phẩm:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
-        </div>
+          <div className="form-group" style={{display:"flex",margin:"10px 0"}}>
+            <label htmlFor="stock" style={{width:"30%"}}>Số lượng tồn:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="stock"
+              value={stock}
+              onChange={(e) => setStock(e.target.value)}
+            />
+          </div>
+          <div className="form-group" style={{display:"flex",margin:"10px 0"}}>
+            <label htmlFor="price" style={{width:"30%"}}>Giá:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+          </div>
+          <div className="form-group" style={{display:"flex",margin:"10px 0"}}>
+            <label htmlFor="description" style={{width:"30%"}}>Mô tả:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+          <div className="form-group" style={{display:"flex",margin:"10px 0"}}>
+            <label htmlFor="image" style={{width:"23%"}}>Ảnh:</label>
+            <input type="file" id="productImage" />
+          </div>
+          <div className="form-group" style={{display:"flex",margin:"10px 0"}}>
+            <label htmlFor="category_id" style={{width:"30%"}}>Loại sản phẩm:</label>
+            <select
+              className="form-control"
+              id="category_id"
+              value={category_id}
+              onChange={(e) => setCategory_id(e.target.value)}
+            >
+              {categories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}{' '}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group" style={{display:"flex",margin:"10px 0"}}>
+            <label htmlFor="brand_id" style={{width:"30%"}}>Nhãn hiệu:</label>
+            <select
+              className="form-control"
+              id="brand_id"
+              value={brand_id}
+              onChange={(e) => setBrand_id(e.target.value)}
+            >
+              {brands.map((brand) => (
+                <option key={brand.id} value={brand.id}>
+                  {brand.name}{' '}
+                </option>
+              ))}
+            </select>
+          </div>
+          {error && (
+            <div style={{ color: 'red' }} className="alert alert-danger">
+              {error}
+            </div>
+          )}
+          <div className="form-group" style={{ margin: '30px' }}>
+            <button
+              style={{ marginRight: '60px' }}
+              type="submit"
+              className="btn btn-primary btn-block"
+            >
+              Xác nhận
+            </button>
+            <Link to="/" className="btn btn-secondary btn-block">
+              Huỷ
+            </Link>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
+</div>
+
   );
 };
 

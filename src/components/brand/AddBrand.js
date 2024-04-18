@@ -45,12 +45,12 @@ const AddBrand = () => {
   return (
     <div className="row justify-content-center">
       <div className="col-md-6">
-        <div className="card" style={{margin: '30px'}}>
-          <div className="card-body">
+        <div  style={{margin: '30px'}}>
+          <div>
             <h1>Thêm nhãn hiệu</h1>
             <form onSubmit={handleSignup}>
-              <div className="form-group">
-                <label htmlFor="name">Tên nhãn hiệu:</label>
+              <div className="form-group" style={{display:"flex",margin:"10px 0"}}>
+                <label htmlFor="name" style={{width:"30%"}}>Tên nhãn hiệu:</label>
                 <input
                   type="text"
                   className="form-control"
@@ -59,8 +59,8 @@ const AddBrand = () => {
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="image">Ảnh:</label>
+              <div className="form-group" style={{display:"flex",margin:"10px 0"}}>
+                <label htmlFor="image" style={{width:"23%"}}>Ảnh:</label>
                 <input
                   type="file"
                   className="form-control-file"
@@ -68,8 +68,8 @@ const AddBrand = () => {
                   onChange={(e) => setImage(e.target.files[0])}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="description">Mô tả:</label>
+              <div className="form-group" style={{display:"flex",margin:"10px 0"}}>
+                <label htmlFor="description" style={{width:"30%"}}>Mô tả:</label>
                 <input
                   type="text"
                   className="form-control"
