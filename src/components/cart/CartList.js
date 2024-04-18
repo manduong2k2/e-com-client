@@ -24,6 +24,40 @@ const CartList = () => {
         console.log(error);
       }
   };
+  const Increase = async (product_id) => {
+    try {
+      const response = await axios.post(
+        "http://jul2nd.ddns.net/api/cart/increase/" + product_id,
+        {
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + getCookie("token"),
+          },
+        }
+      );
+      document.getElementById(product_id+'number').value=parseInt(document.getElementById(product_id+'number').value)+1;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const Decrease = async (product_id) => {
+    try {
+      const response = await axios.post(
+        "http://jul2nd.ddns.net/api/cart/increase/" + product_id,
+        {
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + getCookie("token"),
+          },
+        }
+      );
+      document.getElementById(product_id+'number').value=parseInt(document.getElementById(product_id+'number').value)-1;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
@@ -108,12 +142,12 @@ const CartList = () => {
           <div className="row">
             <div className="col-md-6 offset-md-3">
               <h3 className="mt-5">Giỏ hàng đang trống</h3>
-              <p className="lead" style={{margin: "30px auto"}}>
+              <p className="lead" style={{ margin: "30px auto" }}>
                 Hãy đến mục sản phẩm và chọn những gì bạn thích &#128538;
               </p>
               <Link
                 className="btn btn-primary"
-                style={{margin: "10px auto"}} to="/">
+                style={{ margin: "10px auto" }} to="/">
                 Đến trang sản phẩm
               </Link>
             </div>
@@ -148,23 +182,20 @@ const CartList = () => {
                     {" "}
                     <div style={{ display: "inline-flex" }}>
                       <button
-                        id="product<%=item.product.id%>button"
-                        onclick="DecreaseByOne('<%=item.product.id%>','<%=item.product.price%>')"
+                        onClick={() => Increase(item.product_id)}
                         className="btn btn-danger <%= item.quantity === 1 ? 'disable-btn' : '' %>"
                       >
                         -
                       </button>
                       <input
-                        id={`${item.product.id}`}
+                        id={item.product_id+'number'}
                         style={{ width: "80px", textAlign: "center" }}
                         type="number"
                         min="1"
                         value={item.quantity}
-                        attr={`data-id={item.product.id}`}
-                        className="form-control quantity"
                       />
                       <button
-                        onclick="IncreaseByOne('<%=item.product.id%>','<%=item.product.price%>')"
+                        onClick={() => Decrease(item.product_id)}
                         className="btn btn-success"
                       >
                         +
