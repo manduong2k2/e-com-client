@@ -149,36 +149,7 @@ const PersonalAccount = () => {
               value={email}
             />
           </div>
-          <div class="form-group">
-            <label for="accountEmail">Mật khẩu hiện tại:</label>
-            <input
-              className="form-control"
-              placeholder="Mật khẩu"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div class="form-group">
-            <label for="accountEmail">Mật khẩu mới:</label>
-            <input
-              className="form-control"
-              placeholder="Mật khẩu mới"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div class="form-group">
-            <label for="accountEmail">Xác nhận lại mật khẩu:</label>
-            <input
-              className="form-control"
-              placeholder="Xác nhận lại mật khẩu"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
+          <Link to={'/user/changePassword'} className="btn btn-primary">Đổi mật khẩu</Link>
           <button type="button" class="btn btn-success" style={{margin: "30px"}}>
               Hoàn tất
             </button>
