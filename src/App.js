@@ -24,6 +24,7 @@ import CategoryList from "./components/category/CategoryList";
 import PersonalAccount from "./components/user/personal.account";
 import ChangePassword from "./components/user/Changepass";
 import Products from "./components/user/Products";
+import OrderHistory from "./components/cart/OrderHistory";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
               <Route path="/user/changePassword" exact element={<ChangePassword />} />
               <Route path="/brands" exact element={<BrandList />} />
               <Route path="/carts" exact element={<CartList />} />
+              <Route path="/order/history" exact element={<OrderHistory />} />
               <Route path="/products" exact element={<ProductList />} />
               <Route path="/product/detail/:id" exact element={<ProductDetail />} />
               <Route path="/brand/edit/:id" exact element={<EditBrand />} />

@@ -195,6 +195,11 @@ function Navbar() {
                       </Link>
                     </li>
                     <li>
+                      <Link to="/order/history">
+                        lịch sử mua hàng
+                      </Link>
+                    </li>
+                    <li>
                       <Link to="" onClick={handleLogout}>
                         Đăng xuất
                       </Link>

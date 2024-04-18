@@ -6,13 +6,14 @@ const CartList = () => {
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
   const handleCheckOut=async()=>{
+    if (window.confirm("Bạn có chắc muốn đặt hàng không?"))
     try {
       const response=await axios.post("http://jul2nd.ddns.net/api/order",{}, {
         headers: {
           Authorization: "Bearer " + getCookie("token"),
         },
       });
-      console.log(response);
+      alert('Đặt hàng thành công !');
     } catch (error) {
       console.log(error);
     }
