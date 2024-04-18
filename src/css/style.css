@@ -326,7 +326,7 @@ font-size: 12px;
   transform: scale(1.05);
 }
 .card:hover{
-  background-color: orange;
+  /* background-color: orange; */
 }
 .overlay {
   width: 100%;

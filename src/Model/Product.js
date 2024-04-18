@@ -67,7 +67,7 @@ const Product = ({ product }) => {
           </div>
           <div className="card-body">
             <h4 className="card-title">{name}</h4>
-            <p className="card-text price">{price} VNĐ</p>
+            <p className="card-text price">{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} VNĐ</p>
             <p className="card-text info">{user.fullname}</p>
           </div>
           <div className="card-footer clearfix">

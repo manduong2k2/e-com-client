@@ -65,14 +65,14 @@ const ProductDetail = () => {
   return (
     <div style={{ marginLeft: "20px" }}>
       <hr />
-      <h2 style={{ textDecoration: "underline" }}>{product.name}</h2>
+      <h1 style={{ textDecoration: "underline" }}>{product.name}</h1>
       <div className="detail" style={{ display: "flex" }}>
         <div className="left" style={{ width: "60%" }}>
           <img src={product.image} alt="Hình ảnh" style={{ width: "50%" }} />
         </div>
         <div className="right" style={{ width: "40%", marginTop: "5%" }}>
           <h4 style={{ color: "orangered", fontSize: "30px" }}>
-            {product.price} đ
+            {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} đ
           </h4>
           <p style={{ fontSize: "18px", width: "100%" }}>
             Loại sản phẩm: {product.category.name}
