@@ -52,11 +52,11 @@ const ProductList = () => {
   }, []);
   return (
     <div className="container form-container">
-      <h2>Danh sách sản phẩm</h2>
-      <table border="1">
+      <h2>Quản lý sản phẩm</h2>
+    <table className="table table-striped projects">
         <thead>
-          <tr>
-            <th>id</th>
+            <tr>
+            <th>Mã sản phẩm</th>
             <th style={{width: "15%"}}>Tên sản phẩm</th>
             <th>Số lượng tồn</th>
             <th>Giá</th>
@@ -64,16 +64,16 @@ const ProductList = () => {
             <th style={{width: "30%"}}>Mô tả</th>
             <th>Loại</th>
             <th>Nhãn hiệu</th>
-            <th>action</th>
-          </tr>
+            <th>Hành động</th>
+            </tr>
         </thead>
         <tbody>
-          {products.map((product) => (
+        {products.map((product) => (
             <tr>
               <td>{product.id} </td>
               <td>{product.name}</td>
               <td>{product.stock}</td>
-              <td>{product.price}</td>
+              <td>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}đ</td>
               <td>
                 <img src={product.image} height={90} width={90} border="1px solid #ccc" />
               </td>
@@ -89,8 +89,48 @@ const ProductList = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+    </table>
     </div>
+    // {<div className="container form-container">
+    //   <h2>Danh sách sản phẩm</h2>
+    //   <table border="1">
+    //     <thead>
+    //       <tr>
+    //         <th>Mã sản phẩm</th>
+    //         <th style={{width: "15%"}}>Tên sản phẩm</th>
+    //         <th>Số lượng tồn</th>
+    //         <th>Giá</th>
+    //         <th>Ảnh</th>
+    //         <th style={{width: "30%"}}>Mô tả</th>
+    //         <th>Loại</th>
+    //         <th>Nhãn hiệu</th>
+    //         <th>Hành động</th>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       {products.map((product) => ( */}
+    // {         <tr>
+    //           <td>{product.id} </td>
+    //           <td>{product.name}</td>
+    //           <td>{product.stock}</td>
+    //           <td>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}đ</td>
+    //           <td>
+    //             <img src={product.image} height={90} width={90} border="1px solid #ccc" />
+    //           </td>
+    //           <td>{product.description}</td>
+    //           <td>{product.category.name}</td>
+    //           <td>{product.brand.name}</td>
+    //           <td>
+    //             <div className="form-group">
+    //                 <Link style={{ margin: 20 }} className="btn btn-primary btn-lock" to={'/product/edit/' + product.id}>Sửa</Link>
+    //               <button className="btn btn-danger btn-block" onClick={() => Delete(product.id)}>Xoá</button>
+    //             </div>
+    //           </td>
+    //         </tr>
+    //       ))}
+    //     </tbody> */}
+    // {   </table> }
+    // {  </div> }
   );
 };
 
