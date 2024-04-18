@@ -29,14 +29,14 @@ const SignUp = () => {
                 },
             });
 
-            if(response.status===200){
+            if(response.status===201){
               alert('Đăng ký thành công ! xin mời đăng nhập');
               navigate("/login");
             }
             console.log('Message : '+response.data.message);
             
         } catch (error) {
-            setError('Server errror');
+            setError('Server error');
             console.log('Message : '+error.response.data.message);
         }
     };
