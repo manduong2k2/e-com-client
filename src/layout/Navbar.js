@@ -44,6 +44,7 @@ function Navbar() {
   const [token, setToken] = useState(getCookie("token"));
   const [name, setName] = useState(getCookie("name"));
   const [image, setImage] = useState(getCookie("image"));
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   
 
   useEffect(() => {
@@ -51,6 +52,7 @@ function Navbar() {
     setName(getCookie("name"));
     setImage(getCookie("image"));
     if(token) setIsAdmin(jwtDecode(token).roles.some(role => role.id === 2));
+    setIsLoggedIn(!!token);
     const fetchCartItems = async () => {
       try {
         const response = await axios.get("http://jul2nd.ddns.net/api/carts", {
@@ -125,10 +127,17 @@ function Navbar() {
                 Liên hệ
               </Link>
             </li> */}
-            <li className="nav-item ">
-              <Link id="contact-nav"
-                className="nav-link" to='/product/add'>Đăng bán</Link>
-            </li>
+            {isLoggedIn && (
+              <li className="nav-item ">
+                <Link
+                  id="contact-nav"
+                  className="nav-link"
+                  to='/product/add'
+                >
+                  Đăng bán
+                </Link>
+              </li>
+            )}
             {isAdmin &&(
               <li className="danhmuc-dropdown nav-item dropdown">
               <a onClick={toggleDropdown} className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" >
@@ -152,21 +161,18 @@ function Navbar() {
               )}
             </li>
             )}
-            
-            <li className="nav-item" id="li-cart" style={{ width: "80px" }}>
-              {/* <a className="nav-link" id="cart"> */}
+            {isLoggedIn && ( // Kiểm tra nếu đăng nhập mới hiển thị giỏ hàng
+              <li className="nav-item" id="li-cart" style={{ width: "80px" }}>
                 <Link className="nav-link" id="cart" to="/carts">
-
-                <img
-                  src={cartImage}
-                  title="Giỏ hàng"
-                  style={{ height: "28px" }}
-                />
-
+                  <img
+                    src={cartImage}
+                    title="Giỏ hàng"
+                    style={{ height: "28px" }}
+                  />
                 </Link>
-              {/* </a> */}
-              <p id="num-cart"></p>
-            </li>
+                <p id="num-cart"></p>
+              </li>
+            )}
             <li className="user-dropdown nav-item dropdown" id="log">
               {/* <div  style={{ display: "flex" }}> */}
               <button
