@@ -17,6 +17,7 @@ import EditCategory from "./components/category/EditCategory";
 import Introduce from "./components/Introduce";
 import UserList from "./components/user/UserList";
 import CartList from "./components/cart/CartList";
+import CartSuccess from "./components/cart/CartSuccess";
 import BrandList from "./components/brand/BrandList";
 import ProductList from "./components/product/ProductList";
 import ProductDetail from "./components/product/ProductDetail";
@@ -49,6 +50,7 @@ function App() {
               <Route path="/user/changePassword" exact element={<ChangePassword />} />
               <Route path="/brands" exact element={<BrandList />} />
               <Route path="/carts" exact element={<CartList />} />
+              <Route path="/cart/success" exact element={<CartSuccess />} />
               <Route path="/products" exact element={<ProductList />} />
               <Route path="/product/detail/:id" exact element={<ProductDetail />} />
               <Route path="/brand/edit/:id" exact element={<EditBrand />} />

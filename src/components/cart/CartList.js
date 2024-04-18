@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 const CartList = () => {
+  const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
@@ -13,6 +14,7 @@ const CartList = () => {
         },
       });
       console.log(response);
+      navigate("/cart/success");
     } catch (error) {
       console.log(error);
     }
