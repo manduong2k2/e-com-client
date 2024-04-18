@@ -39,11 +39,22 @@ const OrderHistory = () => {
 
   return (
     <div>
-      <h2>Lịch sử mua hàng</h2>
       {orders.length === 0 ? (
-        <p>Your history is empty.</p>
+        <div className="container text-center text-black">
+        <div className="row">
+          <div className="col-md-6 offset-md-3">
+            <h3 className="mt-5">Bạn chưa từng mua gì hết</h3>
+            <p className="lead" style={{margin: "30px auto"}}>
+              Hãy đến trang chủ và mua những gì bạn muốn &#128538;
+            </p>
+            <Link to="/" className="btn btn-primary" style={{margin: "10px auto"}}
+              >Đến trang chủ</Link>
+          </div>
+        </div>
+      </div>
       ) : (
         <div className="container form-container">
+          <h2>Lịch sử mua hàng</h2>
           <table className="table">
             <thead>
               <tr>

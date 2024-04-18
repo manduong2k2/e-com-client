@@ -58,7 +58,9 @@ function Navbar() {
             Authorization: "Bearer " + getCookie("token"),
           },
         });
-        document.getElementById('num-cart').innerHTML= response.data.length;
+        response.data.length === 0 ?
+        document.getElementById('num-cart').innerHTML= response.data.length
+        : document.getElementById('num-cart').innerHTML=0;
       } catch (error) {
         console.error("Error fetching cart items:", error);
       }
@@ -196,7 +198,7 @@ function Navbar() {
                     </li>
                     <li>
                       <Link to="/order/history">
-                        lịch sử mua hàng
+                        Lịch sử mua hàng
                       </Link>
                     </li>
                     <li>
