@@ -33,7 +33,7 @@ const Home = () => {
                 );
                 setCategories(categoriesResponse.data);
             } catch (err) {
-                console.log(err);
+                console.log(err.response.data.message);
             }
         };
         fetchData();
