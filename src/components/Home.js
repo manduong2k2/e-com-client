@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Product from "../Model/Product";
-import { Link } from "react-router-dom";
 import "../css/style.css";
 import "../css/bootstrap.min.css";
+import { Link, useNavigate } from 'react-router-dom';
 const Home = () => {
     const [products, setProducts] = useState([]);
     const [brands, setBrands] = useState([]);
@@ -11,7 +11,14 @@ const Home = () => {
     const [selectedBrand, setSelectedBrand] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [searchInput, setSearchInput] = useState("");
-
+    const navigate = useNavigate();
+    const prodductDetail=(id)=>{
+        try{
+            navigate("/product/detail/" + id);
+        }catch(err){
+            console.log(err);
+        }
+    }
     useEffect(() => {
         const fetchData = async () => {
             try {

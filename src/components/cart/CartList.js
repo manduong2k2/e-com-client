@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
 const CartList = () => {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
+  const handleCheckOut=async()=>{
+    try {
+      const response=await axios.post("http://jul2nd.ddns.net/api/order",{}, {
+        headers: {
+          Authorization: "Bearer " + getCookie("token"),
+        },
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
@@ -132,6 +143,14 @@ const CartList = () => {
                   </td>
                   <td>
                     {" "}
+                    <div style={{display: "inline-flex"}}>
+                    <button
+                      id="product<%=item.product.id%>button"
+                      onclick="DecreaseByOne('<%=item.product.id%>','<%=item.product.price%>')"
+                      class="btn btn-danger <%= item.quantity === 1 ? 'disable-btn' : '' %>"
+                    >
+                      -
+                    </button>
                     <input
                       id={`${item.product.id}`}
                       style={{ width: "80px", textAlign: "center" }}
@@ -141,18 +160,32 @@ const CartList = () => {
                       attr={`data-id={item.product.id}`}
                       className="form-control quantity"
                     />
+                    <button
+                      onclick="IncreaseByOne('<%=item.product.id%>','<%=item.product.price%>')"
+                      class="btn btn-success"
+                    >
+                      +
+                    </button>
+                    </div>
                   </td>
                   <td>
                     {" "}
                     <label>
                       {" "}
-                      <span readonly>{item.product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} đ</span>
+                      <span readonly>
+                        {item.product.price
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}{" "}
+                        đ
+                      </span>
                     </label>
                   </td>
                   <td>
                     <label>
                       <span id="total" className="itemTotal">
-                        {(item.quantity * item.product.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+                        {(item.quantity * item.product.price)
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
                       </span>
                       <span>₫</span>
                     </label>
@@ -180,10 +213,12 @@ const CartList = () => {
           </table>
           <div className="row">
             <div className="col-md-12">
-              <h3 style={{display: 'flex'}}>
+              <h3 style={{ display: "flex" }}>
                 {" "}
                 Tổng hoá đơn:
-                <p id="hiddenBillTotal">{total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+                <p id="hiddenBillTotal">
+                  {total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+                </p>
                 <span>₫</span>
               </h3>
             </div>
@@ -191,11 +226,10 @@ const CartList = () => {
               <a onClick={() => RemoveAllItem()} className="btn btn-danger">
                 Xoá toàn bộ sản phẩm
               </a>
-              <Link
+              <button
                 className="btn btn-success"
-                onclick="Payment()"
                 style={{ margin: "0px 15px" }}
-                to="/checkout"
+                onclick={handleCheckOut()}
               >
                 Proceed to Checkout
                 <svg
@@ -208,7 +242,7 @@ const CartList = () => {
                 >
                   <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
                 </svg>
-              </Link>
+              </button>
             </div>
           </div>
         </div>

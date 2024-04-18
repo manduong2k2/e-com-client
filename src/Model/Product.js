@@ -63,7 +63,9 @@ const Product = ({ product }) => {
         {/* <div className="col-lg-3 col-md-4 col-sm-6 col-12"> */}
         <div className="card">
           <div className="card-header" style={{ backgroundColor: 'white', marginTop: 10 }}>
+            <Link to={"/product/detail/" + id}>
             <img src={image} alt={name} className="card-img-top" style={{ width: "214px", height: "214px" }} />
+            </Link>
           </div>
           <div className="card-body">
             <h4 className="card-title">{name}</h4>
@@ -77,9 +79,6 @@ const Product = ({ product }) => {
                   <img src={cartImage} alt="Cart" style={{ width: '20px', height: '20px' }} />
                 </button>
               </form>
-              <div>
-                <Link to={"/product/detail/" + id} className="btn btn-cart">Thông tin</Link>
-              </div>
             </div>
             {/* </div> */}
           </div>

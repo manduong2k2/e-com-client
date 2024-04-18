@@ -11,6 +11,23 @@ const Forgot = () => {
   const [email, setEmail] = useState([]);
   const handleForgot = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.post('http://jul2nd.ddns.net/api/user/forgot/'+email, {
+      });
+      console.log(response)
+      if (response.status==200) {
+          alert("Đã gửi mật khẩu mới tới email của bạn, vui lòng đăng nhập và thay đổi mật khẩu!");
+          window.location.href = "login";
+
+        } else {
+          setError('Email không tồn tại. Làm ơn thử lại.');
+          console.log('Login failed:', response.data);
+        }
+      
+  } catch (error) {
+      setError('Email không tồn tại. Làm ơn thử lại.');
+      console.log(error);
+  }
   };
 
   return (

@@ -190,7 +190,7 @@ function Navbar() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/user/manage">
+                      <Link to="/user/products">
                         Quản lý sản phẩm
                       </Link>
                     </li>
