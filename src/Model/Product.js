@@ -21,34 +21,40 @@ const Product = ({ product }) => {
 
     e.preventDefault();
 
-    if (window.confirm("Are you sure you want to add this item to cart") === true) {
-      try {
-        const response = await axios.post("http://jul2nd.ddns.net/api/cart/add/" + id, {}, {
-          headers: {
-            'Authorization': 'Bearer ' + getCookie('token')
-          },
-        }
-        );
-        if (response.status === 200) {
-          alert('Product added to cart !');
-        }
-      } catch (error) {
-        console.log('error: ' + error.response.data.message);
-      }
+    if (!getCookie('token')) {
+      alert('Xin vui lòng đăng nhập !');
+      window.location.href = '/login';
     }
-    const fetchCartItems = async () => {
-      try {
-        const response = await axios.get("http://jul2nd.ddns.net/api/carts", {
-          headers: {
-            Authorization: "Bearer " + getCookie("token"),
-          },
-        });
-        document.getElementById('num-cart').innerHTML= response.data.length;
-      } catch (error) {
-        console.error("Error fetching cart items:", error);
+    else {
+      if (window.confirm("Are you sure you want to add this item to cart") === true) {
+        try {
+          const response = await axios.post("http://jul2nd.ddns.net/api/cart/add/" + id, {}, {
+            headers: {
+              'Authorization': 'Bearer ' + getCookie('token')
+            },
+          }
+          );
+          if (response.status === 200) {
+            alert('Product added to cart !');
+          }
+        } catch (error) {
+          console.log('error: ' + error.response.data.message);
+        }
       }
-    };
-    fetchCartItems();
+      const fetchCartItems = async () => {
+        try {
+          const response = await axios.get("http://jul2nd.ddns.net/api/carts", {
+            headers: {
+              Authorization: "Bearer " + getCookie("token"),
+            },
+          });
+          document.getElementById('num-cart').innerHTML = response.data.length;
+        } catch (error) {
+          console.error("Error fetching cart items:", error);
+        }
+      };
+      fetchCartItems();
+    }
   };
 
   return (
@@ -70,16 +76,16 @@ const Product = ({ product }) => {
                 <button type="submit" className="btn btn-cart" >
                   <img src={cartImage} alt="Cart" style={{ width: '20px', height: '20px' }} />
                 </button>
-            </form>
-            <div>
-              <Link to={"/product/detail/"  + id} className="btn btn-cart">Thông tin</Link>
+              </form>
+              <div>
+                <Link to={"/product/detail/" + id} className="btn btn-cart">Thông tin</Link>
+              </div>
             </div>
+            {/* </div> */}
           </div>
-        {/* </div> */}
+        </div>
       </div>
-    </div>
-  </div>
-      
+
     </div>
   );
 };

@@ -104,38 +104,15 @@ const RemoveAllItem = async () => {
               {cartItems.map((item, index) => (
                 <tr key={index} className="productItem">
                   <td>
-                    <input
-                      className="item-check"
-                      style={{
-                        cursor: "pointer",
-                        height: "25px",
-                        width: "25px",
-                      }}
-                      type="checkbox"
-                    />
+                    <input className="item-check" style={{ cursor: "pointer", height: "25px", width: "25px", }} type="checkbox" />
                   </td>
                   <td>{item.product.name}</td>
                   <td>
-                    <img
-                      src={item.product.image}
-                      alt="Hình ảnh"
-                      style={{ height: "100px" }}
-                    />
+                    <img src={item.product.image} alt="Hình ảnh" style={{ height: "100px" }} />
                   </td>
                   <td>
                     {" "}
-                    <input
-                      id={`${item.product.id}`}
-                      style={{
-                        width: "80px",
-                        textAlign: "center",
-                      }}
-                      type="number"
-                      min="1"
-                      value={item.quantity}
-                      attr={`data-id={item.product.id}`}
-                      className="form-control quantity"
-                    />
+                    <input id={`${item.product.id}`} style={{ width: "80px", textAlign: "center", }} type="number" min="1" value={item.quantity} attr={`data-id={item.product.id}`} className="form-control quantity" />
                   </td>
                   <td>
                     {" "}
