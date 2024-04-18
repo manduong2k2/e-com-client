@@ -81,7 +81,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg background-radial-gradient">
       <div className="container-fluid">
         <button
           className="navbar-toggler icon-nav"
