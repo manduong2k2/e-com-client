@@ -18,10 +18,11 @@ const CartList = () => {
             },
           }
         );
+        console.log(response.data.message);
         alert("Đặt hàng thành công !");
         navigate("/cart/success");
       } catch (error) {
-        console.log(error);
+        console.log(error.response.data.message);
       }
   };
   const Increase = async (product_id) => {
@@ -44,7 +45,7 @@ const CartList = () => {
   const Decrease = async (product_id) => {
     try {
       const response = await axios.post(
-        "http://jul2nd.ddns.net/api/cart/increase/" + product_id,
+        "http://jul2nd.ddns.net/api/cart/decrease/" + product_id,
         {
         },
         {
@@ -182,7 +183,7 @@ const CartList = () => {
                     {" "}
                     <div style={{ display: "inline-flex" }}>
                       <button
-                        onClick={() => Increase(item.product_id)}
+                        onClick={() => Decrease(item.product_id)}
                         className="btn btn-danger <%= item.quantity === 1 ? 'disable-btn' : '' %>"
                       >
                         -
@@ -195,7 +196,7 @@ const CartList = () => {
                         value={item.quantity}
                       />
                       <button
-                        onClick={() => Decrease(item.product_id)}
+                        onClick={() => Increase(item.product_id)}
                         className="btn btn-success"
                       >
                         +
