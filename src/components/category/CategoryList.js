@@ -62,9 +62,9 @@ const CategoryList = () => {
       <table border="1">
         <thead>
           <tr>
-            <th>id</th>
+            <th>Mã loại</th>
             <th>Tên loại</th>
-            <th>action</th>
+            <th>Hành động</th>
           </tr>
         </thead>
         <tbody>

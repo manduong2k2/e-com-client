@@ -65,12 +65,12 @@ const UserList = () => {
       <table border="1">
         <thead>
           <tr>
-            <th>id</th>
+            <th>Mã người dùng</th>
             <th>Tên người dùng</th>
             <th>Họ tên</th>
             <th>Ảnh</th>
-            <th>email</th>
-            <th>admin</th>
+            <th>Email</th>
+            <th>Quyền Admin</th>
           </tr>
         </thead>
         <tbody>

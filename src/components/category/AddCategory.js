@@ -56,10 +56,10 @@ const AddCategory = () => {
               {error && <div style={{color: 'red'}} className="alert alert-danger">{error}</div>}
              <div className="form-group" style={{margin: '30px'}}>
                <button style={{marginRight: '60px'}} type="submit" className="btn btn-primary btn-block">
-                Submit
+                Xác nhận
               </button>
               <Link to="/categories" className="btn btn-secondary btn-block">
-                Cancel
+                Hủy
               </Link>
               </div>
             </form>

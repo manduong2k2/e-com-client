@@ -120,7 +120,7 @@ const OrderHistory = () => {
                   <tr key={index}>
                     <td>{item.product.name}</td>
                     <td>{item.quantity}</td>
-                    <td>{item.product.price}</td>
+                    <td>{item.product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}{" "}đ</td>
                     <td>
                       <img style={{ width: '100px' }} src={item.product.image} alt={item.product.name} />
                     </td>

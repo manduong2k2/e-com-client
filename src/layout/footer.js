@@ -16,15 +16,14 @@ function Footer() {
                 >
                   <a className="text-white" href="/">
                     {" "}
-                    Ecom
+                    Ecom Store
                   </a>
                 </h6>
                 <i>
                   <b>
-                    “Sức mạnh không đến từ năng lực thể chất. Nó đến từ ý chí
-                    không chịu khuất phục.”{" "}
+                    “Công nghệ vượt trội, cuộc sống vượt trội.”{" "}
                   </b>
-                  <br /> - Mahatma Gandhi -
+                  <br /> - Mạnh đẹp trai -
                 </i>
               </div>
 
@@ -74,23 +73,7 @@ function Footer() {
 
               <hr className="w-100 clearfix d-md-none" />
 
-              <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h6 className="text-uppercase mb-4 font-weight-bold">
-                  Chính sách
-                </h6>
-                <p>
-                  <a className="text-white">Chính sách mua hàng</a>
-                </p>
-                <p>
-                  <a className="text-white">Chính sách giao hàng</a>
-                </p>
-                <p>
-                  <a className="text-white">Chính sách bảo mật</a>
-                </p>
-                <p>
-                  <a className="text-white">Chính sách đổi trả</a>
-                </p>
-              </div>
+              
 
               <hr className="w-100 clearfix d-md-none" />
 
@@ -122,7 +105,7 @@ function Footer() {
                 <div className="p-3">
                   © Copyright:
                   <a className="text-white" href="/">
-                    Ecom.com
+                    EcomStore.com
                   </a>
                 </div>
               </div>

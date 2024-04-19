@@ -29,15 +29,15 @@ const CartList = () => {
     try {
       const response = await axios.post(
         "http://jul2nd.ddns.net/api/cart/increase/" + product_id,
-        {
-        },
+        {},
         {
           headers: {
             Authorization: "Bearer " + getCookie("token"),
           },
         }
       );
-      document.getElementById(product_id+'number').value=parseInt(document.getElementById(product_id+'number').value)+1;
+      document.getElementById(product_id + "number").value =
+        parseInt(document.getElementById(product_id + "number").value) + 1;
     } catch (error) {
       console.log(error);
     }
@@ -46,15 +46,16 @@ const CartList = () => {
     try {
       const response = await axios.post(
         "http://jul2nd.ddns.net/api/cart/decrease/" + product_id,
-        {
-        },
+        {},
         {
           headers: {
             Authorization: "Bearer " + getCookie("token"),
           },
         }
       );
-      document.getElementById(product_id+'number').value=parseInt(document.getElementById(product_id+'number').value)-1;
+      var total = document.getElementById(product_id + "number").value;
+      total =
+        parseInt(document.getElementById(product_id + "number").value) - 1;
     } catch (error) {
       console.log(error);
     }
@@ -148,7 +149,9 @@ const CartList = () => {
               </p>
               <Link
                 className="btn btn-primary"
-                style={{ margin: "10px auto" }} to="/">
+                style={{ margin: "10px auto" }}
+                to="/"
+              >
                 Đến trang sản phẩm
               </Link>
             </div>
@@ -156,7 +159,7 @@ const CartList = () => {
         </div>
       ) : (
         <div className="container form-container">
-          <h2>Your Cart</h2>
+          <h2>Giỏ hàng</h2>
           <table className="table">
             <thead>
               <tr>
@@ -184,12 +187,15 @@ const CartList = () => {
                     <div style={{ display: "inline-flex" }}>
                       <button
                         onClick={() => Decrease(item.product_id)}
-                        className="btn btn-danger <%= item.quantity === 1 ? 'disable-btn' : '' %>"
+                        className={`btn btn-danger ${
+                          item.quantity === 1 ? "disable-btn" : ""
+                        }`}
+                        disabled={item.quantity === 1} // Disable the button when quantity is 1
                       >
                         -
                       </button>
                       <input
-                        id={item.product_id+'number'}
+                        id={item.product_id + "number"}
                         style={{ width: "80px", textAlign: "center" }}
                         type="number"
                         min="1"
@@ -207,7 +213,7 @@ const CartList = () => {
                     {" "}
                     <label>
                       {" "}
-                      <span readonly>
+                      <span readOnly>
                         {item.product.price
                           .toString()
                           .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}{" "}
@@ -229,8 +235,8 @@ const CartList = () => {
                     <a onClick={() => removeFromCart(item.product.id)}>
                       <svg
                         style={{ cursor: "pointer", fill: "red" }}
-                        onmouseout="this.style.transform='scale(1)'"
-                        onmouseover="this.style.transform='scale(1.2)'"
+                        onMouseOut="this.style.transform='scale(1)'"
+                        onMouseOver="this.style.transform='scale(1.2)'"
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
                         y="0px"
@@ -266,7 +272,7 @@ const CartList = () => {
                 style={{ margin: "0px 15px" }}
                 onClick={() => handleCheckOut()}
               >
-                Proceed to Checkout
+                Thanh toán
                 <svg
                   fill="white"
                   width="24"

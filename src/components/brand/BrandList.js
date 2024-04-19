@@ -58,11 +58,11 @@ const BrandList = () => {
       <table border="1">
         <thead>
           <tr>
-            <th>id</th>
+            <th>Mã nhãn hiệu</th>
             <th>Tên nhãn hiệu</th>
             <th>Ảnh</th>
             <th>Mô tả</th>
-            <th>action</th>
+            <th>Hành động</th>
           </tr>
         </thead>
         <tbody>
