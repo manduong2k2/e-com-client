@@ -60,7 +60,7 @@ function Navbar() {
             Authorization: "Bearer " + getCookie("token"),
           },
         });
-        response.data.length === 0 ?
+        response.data.length !== 0 ?
         document.getElementById('num-cart').innerHTML= response.data.length
         : document.getElementById('num-cart').innerHTML=0;
       } catch (error) {
