@@ -10,6 +10,7 @@ const SignUp = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [address, setAddress] = useState('');
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
@@ -22,6 +23,7 @@ const SignUp = () => {
             formData.append('username', username);
             formData.append('email', email);
             formData.append('password', password);
+            formData.append('address', address);
         try {
             const response = await axios.post('http://jul2nd.ddns.net/api/signup', formData,{
                 headers: {
@@ -100,6 +102,12 @@ const SignUp = () => {
                     className="form-control"
                     placeholder='Mật khẩu' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
+                <div className="form-outline mb-4">
+                    <input id="form3Example3"
+                    placeholder="Địa chỉ"
+                    required
+                    className="form-control" type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+                </div>
                 {error && <div style={{color: 'red'}}>{error}</div>}
                 <button className='btn btn-primary btn-block mx-auto d-block mb-4'
                    type="submit">Đăng ký</button>
@@ -117,3 +125,4 @@ const SignUp = () => {
 };
 
 export default SignUp;
+

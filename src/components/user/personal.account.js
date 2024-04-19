@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useLocation } from "react-router-dom";
 import "../../css/bootstrap.min.css";
 import "../../css/style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +12,9 @@ const PersonalAccount = () => {
   const [username, setUsername] = useState("");
   const [image, setImage] = useState("");
   const [email, setEmail] = useState("");
+  const location = useLocation();
   const [password, setPassword] = useState("");
+  const [address, setAddress] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -40,11 +42,12 @@ const PersonalAccount = () => {
         setFullName(response.data.user.fullname);
         setImage(response.data.user.image);
         setEmail(response.data.user.email);
+        setAddress(response.data.user.address);
       })
       .catch((error) => {
         console.error("Error fetching user:", error);
       });
-  }, []);
+  }, [location.pathname]);
 
   const handleEdit = async (e) => {
     e.preventDefault();
@@ -55,37 +58,38 @@ const PersonalAccount = () => {
     formData.append("username", username);
     formData.append("email", email);
     formData.append("password", password);
+    formData.append("address", address);
     try {
       const response = await axios.post(
-        "http://jul2nd.ddns.net/user/edit",
+        "http://jul2nd.ddns.net/api/user/edit",
         formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            'Authorization': 'Bearer ' + getCookie('token')
           },
         }
       );
-
+      window.location.href = "/user/manage";
       if (response.status === 200) {
-        alert("Đăng ký thành công ! xin mời đăng nhập");
-        navigate("/login");
+        alert("Cập nhật thông tin thành công!");
       }
-      console.log("Message : " + response.data.message);
+      console.log("Message : " + response);
     } catch (error) {
-      setError("Server errror");
-      console.log("Message : " + error.response.data.message);
+      console.log("error: " + error.response.status);
     }
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-around",
-      }}
-      id="formContain"
-    >
+    <form onSubmit={handleEdit}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+          }}
+          id="formContain"
+        >
       <div
         style={{
           display: "flex",
@@ -94,7 +98,7 @@ const PersonalAccount = () => {
           justifyContent: "center",
           textAlign: "center",
         }}
-        class="form-group"
+        className="form-group"
       >
         <h1>Thông tin tài khoản</h1>
         {image ? ( // Check if image cookie exists
@@ -116,47 +120,62 @@ const PersonalAccount = () => {
           <input style={{ color: "#000" }} type="file" id="accImage" />
         </div>
       </div>
-      <form style={{ width: "600px", margin: "30px" }} id="accountForm">
+      <div style={{ width: "600px", margin: "100px 0 0 0" }} id="accountForm">
         <div id="editAccountInfo">
-          <div class="form-group">
-            <label for="accountName">Họ và tên:</label>
+          <div className="form-group">
+            <label htmlFor="accountName">Họ và tên:</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               required
-              readonly
+              readOnly
               value={fullname}
+              onChange={(e) => setFullName(e.target.value)}
             />
           </div>
-          <div class="form-group">
-            <label for="accountUsername">Username:</label>
+          <div className="form-group">
+            <label htmlFor="accountUsername">Username:</label>
             <input type="hidden" id="accountId" value="<%=data.id%>" />
             <input
               type="text"
               value={username}
-              class="form-control"
+              className="form-control"
               required
-              readonly
+              readOnly
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <div class="form-group">
-            <label for="accountEmail">Email:</label>
+          <div className="form-group">
+            <label htmlFor="accountEmail">Email:</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               required
-              readonly
+              readOnly
               value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="accountAddress">Địa chỉ:</label>
+            <input
+              type="text"
+              className="form-control"
+              required
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
             />
           </div>
           <Link to={'/user/changePassword'} className="btn btn-primary">Đổi mật khẩu</Link>
-          <button type="button" class="btn btn-success" style={{margin: "30px"}}>
+          <button type="submit" className="btn btn-success" style={{margin: "30px"}}>
               Hoàn tất
             </button>
         </div>
-      </form>
+      </div>
     </div>
+      </form>
   );
 };
 
 export default PersonalAccount;
+

@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import bannerImage from "../images/abcd.jpeg";
 const Introduce = () => {
   return (
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="overlay">
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12">
+          <div className="overlay">
             <img
               style={{
                 width: "70%",
