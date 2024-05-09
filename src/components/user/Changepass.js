@@ -27,7 +27,7 @@ const ChangePassword = () => {
 
     try {
       const response = await axios.post(
-        "http://jul2nd.ddns.net/api/user/changePassword",
+        "http://localhost/api/user/changePassword",
         {
           oldPassword,
           newPassword,

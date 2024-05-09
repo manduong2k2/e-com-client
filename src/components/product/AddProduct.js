@@ -6,8 +6,8 @@ const AddProduct = () => {
   const navigate = useNavigate();
   const fetchBrandsAndCategories = async () => {
     try {
-      const brands = await axios.get("http://jul2nd.ddns.net/api/brands"); 
-      const categories = await axios.get("http://jul2nd.ddns.net/api/categories"); 
+      const brands = await axios.get("http://localhost/api/brands"); 
+      const categories = await axios.get("http://localhost/api/categories"); 
       setBrands(brands.data); 
       setCategories(categories.data);
     } catch (error) {
@@ -53,7 +53,7 @@ const AddProduct = () => {
     formData.append('brand_id', document.getElementById('brand_id').value);
     formData.append('category_id', document.getElementById('category_id').value);
     try {
-      const response = await axios.post("http://jul2nd.ddns.net/api/product/create", formData ,{
+      const response = await axios.post("http://localhost/api/product/create", formData ,{
           headers: {
             "Content-Type": "multipart/form-data",
             'Authorization':'Bearer '+ getCookie('token')

@@ -15,7 +15,7 @@ const UserList = () => {
     return '';
   }
   useEffect(() => {
-    axios.get('http://jul2nd.ddns.net/api/users',{
+    axios.get('http://localhost/api/users',{
       headers: {
         'Authorization':'Bearer '+ getCookie('token')
       },
@@ -33,7 +33,7 @@ const UserList = () => {
   const handleCheckboxChange = (userId, checked) => {
     if (checked) {
       // Gửi request 1 khi checkbox được check
-      axios.post(`http://jul2nd.ddns.net/api/grant/${userId}`,{},{
+      axios.post(`http://localhost/api/grant/${userId}`,{},{
         headers: {
           'Authorization':'Bearer '+ getCookie('token')
         },
@@ -46,7 +46,7 @@ const UserList = () => {
         });
     } else {
       // Gửi request 2 khi checkbox được uncheck
-      axios.post(`http://jul2nd.ddns.net/api/revoke/${userId}`,{},{
+      axios.post(`http://localhost/api/revoke/${userId}`,{},{
         headers: {
           'Authorization':'Bearer '+ getCookie('token')
         },

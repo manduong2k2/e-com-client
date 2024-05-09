@@ -32,7 +32,7 @@ const PersonalAccount = () => {
 
   useEffect(() => {
     axios
-      .get("http://jul2nd.ddns.net/api/user", {
+      .get("http://localhost/api/user", {
         headers: {
           Authorization: "Bearer " + getCookie("token"),
         },
@@ -61,7 +61,7 @@ const PersonalAccount = () => {
     formData.append("address", address);
     try {
       const response = await axios.post(
-        "http://jul2nd.ddns.net/api/user/edit",
+        "http://localhost/api/user/edit",
         formData,
         {
           headers: {

@@ -24,19 +24,19 @@ const Home = () => {
             try {
                 // Fetch danh sách sản phẩm
                 const productsResponse = await axios.get(
-                    "http://jul2nd.ddns.net/api/products"
+                    "http://localhost/api/products"
                 );
                 setProducts(productsResponse.data);
 
                 // Fetch danh sách thương hiệu
                 const brandsResponse = await axios.get(
-                    "http://jul2nd.ddns.net/api/brands"
+                    "http://localhost/api/brands"
                 );
                 setBrands(brandsResponse.data);
 
                 // Fetch danh sách danh mục
                 const categoriesResponse = await axios.get(
-                    "http://jul2nd.ddns.net/api/categories"
+                    "http://localhost/api/categories"
                 );
                 setCategories(categoriesResponse.data);
             } catch (err) {

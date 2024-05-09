@@ -7,7 +7,7 @@ const EditCategory = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get("http://jul2nd.ddns.net/api/category/" + id, {
+    axios.get("http://localhost/api/category/" + id, {
       headers: {
         Authorization: "Bearer " + getCookie("token"),
       },
@@ -40,7 +40,7 @@ const EditCategory = () => {
     try {
       const formData = new FormData();
       formData.append('name', name);
-      const response = await axios.post("http://jul2nd.ddns.net/api/category/edit/" + id, formData, {
+      const response = await axios.post("http://localhost/api/category/edit/" + id, formData, {
         headers: {
           'Authorization': 'Bearer ' + getCookie('token')
         },

@@ -7,7 +7,7 @@ const EditBrand = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get("http://jul2nd.ddns.net/api/brand/" + id, {
+    axios.get("http://localhost/api/brand/" + id, {
       headers: {
         Authorization: "Bearer " + getCookie("token"),
       },
@@ -61,7 +61,7 @@ const EditBrand = () => {
       if (image)
         formData.append('image', image);
       formData.append('description', description);
-      const response = await axios.post("http://jul2nd.ddns.net/api/brand/edit/" + id,formData, {
+      const response = await axios.post("http://localhost/api/brand/edit/" + id,formData, {
         headers: {
           "Content-Type":'multipart/form-data',
           Authorization: 'Bearer ' + getCookie('token')

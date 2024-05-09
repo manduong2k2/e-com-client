@@ -24,7 +24,7 @@ const ProductDetail = () => {
     e.preventDefault();
     
     try {
-      const response = await axios.post("http://jul2nd.ddns.net/api/cart/add/"+id,{}, {
+      const response = await axios.post("http://localhost/api/cart/add/"+id,{}, {
           headers: {
             'Authorization':'Bearer '+ getCookie('token')
           },
@@ -42,7 +42,7 @@ const ProductDetail = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          "http://jul2nd.ddns.net/api/products/" + id
+          "http://localhost/api/products/" + id
         );
         setProduct(response.data.product);
         setLoading(false);

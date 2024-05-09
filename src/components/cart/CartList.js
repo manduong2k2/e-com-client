@@ -10,7 +10,7 @@ const CartList = () => {
     if (window.confirm("Bạn có chắc muốn đặt hàng không?"))
       try {
         const response = await axios.post(
-          "http://jul2nd.ddns.net/api/order",
+          "http://localhost/api/order",
           {},
           {
             headers: {
@@ -28,7 +28,7 @@ const CartList = () => {
   const Increase = async (product_id) => {
     try {
       const response = await axios.post(
-        "http://jul2nd.ddns.net/api/cart/increase/" + product_id,
+        "http://localhost/api/cart/increase/" + product_id,
         {},
         {
           headers: {
@@ -45,7 +45,7 @@ const CartList = () => {
   const Decrease = async (product_id) => {
     try {
       const response = await axios.post(
-        "http://jul2nd.ddns.net/api/cart/decrease/" + product_id,
+        "http://localhost/api/cart/decrease/" + product_id,
         {},
         {
           headers: {
@@ -63,7 +63,7 @@ const CartList = () => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get("http://jul2nd.ddns.net/api/carts", {
+        const response = await axios.get("http://localhost/api/carts", {
           headers: {
             Authorization: "Bearer " + getCookie("token"),
           },
@@ -83,7 +83,7 @@ const CartList = () => {
     if (window.confirm("Bạn có chắc muốn xoá sản phẩm này không?"))
       try {
         const response = await axios.delete(
-          "http://jul2nd.ddns.net/api/cart/deleteAll",
+          "http://localhost/api/cart/deleteAll",
           {
             headers: {
               Authorization: "Bearer " + getCookie("token"),
@@ -100,7 +100,7 @@ const CartList = () => {
     if (window.confirm("Bạn có chắc muốn xoá sản phẩm này không?"))
       try {
         const response = await axios.delete(
-          "http://jul2nd.ddns.net/api/cart/delete/" + productId,
+          "http://localhost/api/cart/delete/" + productId,
           {
             headers: {
               Authorization: "Bearer " + getCookie("token"),

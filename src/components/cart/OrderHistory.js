@@ -14,7 +14,7 @@ const OrderHistory = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get("http://jul2nd.ddns.net/api/orders", {
+        const response = await axios.get("http://localhost/api/orders", {
           headers: {
             Authorization: "Bearer " + getCookie("token"),
           },

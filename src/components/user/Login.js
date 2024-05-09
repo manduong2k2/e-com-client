@@ -27,7 +27,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://jul2nd.ddns.net/api/login', {
+            const response = await axios.post('http://localhost/api/login', {
                 email,
                 password
             });

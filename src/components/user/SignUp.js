@@ -25,7 +25,7 @@ const SignUp = () => {
             formData.append('password', password);
             formData.append('address', address);
         try {
-            const response = await axios.post('http://jul2nd.ddns.net/api/signup', formData,{
+            const response = await axios.post('http://localhost/api/signup', formData,{
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },

@@ -22,7 +22,7 @@ const CategoryList = () => {
     if (result) {
       try {
         const response = await axios.delete(
-          "http://jul2nd.ddns.net/api/category/delete/" + id,
+          "http://localhost/api/category/delete/" + id,
           {},
           {
             headers: {
@@ -43,7 +43,7 @@ const CategoryList = () => {
   };
   useEffect(() => {
     axios
-      .get("http://jul2nd.ddns.net/api/categories", {
+      .get("http://localhost/api/categories", {
         headers: {
           Authorization: "Bearer " + getCookie("token"),
         },

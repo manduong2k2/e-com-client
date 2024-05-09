@@ -20,7 +20,7 @@ const Products = () => {
     if (result) {
       try {
         const response = await axios.delete(
-          "http://jul2nd.ddns.net/api/product/delete/" + id,
+          "http://localhost/api/product/delete/" + id,
           {},
           {
             headers: {
@@ -41,7 +41,7 @@ const Products = () => {
   };
   useEffect(() => {
     axios
-      .get("http://jul2nd.ddns.net/api/user/products", {
+      .get("http://localhost/api/user/products", {
         headers: {
           Authorization: "Bearer " + getCookie("token"),
         },

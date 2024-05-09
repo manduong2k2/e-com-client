@@ -22,7 +22,7 @@ const AddCategory = () => {
     formData.append('name', name);
     try {
       const response = await axios.post(
-        "http://jul2nd.ddns.net/api/category/create", formData ,{
+        "http://localhost/api/category/create", formData ,{
           headers: {
             "Content-Type": "multipart/form-data",
             'Authorization':'Bearer '+ getCookie('token')

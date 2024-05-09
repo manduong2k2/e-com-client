@@ -28,7 +28,7 @@ const Product = ({ product }) => {
     else {
       if (window.confirm("Are you sure you want to add this item to cart") === true) {
         try {
-          const response = await axios.post("http://jul2nd.ddns.net/api/cart/add/" + id, {}, {
+          const response = await axios.post("http://localhost/api/cart/add/" + id, {}, {
             headers: {
               'Authorization': 'Bearer ' + getCookie('token')
             },
@@ -43,7 +43,7 @@ const Product = ({ product }) => {
       }
       const fetchCartItems = async () => {
         try {
-          const response = await axios.get("http://jul2nd.ddns.net/api/carts", {
+          const response = await axios.get("http://localhost/api/carts", {
             headers: {
               Authorization: "Bearer " + getCookie("token"),
             },

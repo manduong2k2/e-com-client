@@ -28,7 +28,7 @@ const AddBrand = () => {
     formData.append('description', description);
     try {
       const response = await axios.post(
-        "http://jul2nd.ddns.net/api/brand/create", formData, {
+        "http://localhost/api/brand/create", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
             'Authorization':'Bearer '+ getCookie('token')

@@ -12,7 +12,7 @@ const Forgot = () => {
   const handleForgot = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://jul2nd.ddns.net/api/user/forgot/'+email, {
+      const response = await axios.post('http://localhost/api/user/forgot/'+email, {
       });
       console.log(response)
       if (response.status==200) {

@@ -20,7 +20,7 @@ const BrandList = () => {
     const result = window.confirm("Bạn có chắc muốn xoá nhãn hiệu này không?");
     if (result) {
       try {
-        const response = await axios.delete("http://jul2nd.ddns.net/api/brand/delete/" + id, {}, {
+        const response = await axios.delete("http://localhost/api/brand/delete/" + id, {}, {
           headers: {
             'Authorization': 'Bearer ' + getCookie('token')
           },
@@ -39,7 +39,7 @@ const BrandList = () => {
   };
   useEffect(() => {
     axios
-      .get("http://jul2nd.ddns.net/api/brands", {
+      .get("http://localhost/api/brands", {
         headers: {
           Authorization: "Bearer " + getCookie("token"),
         },

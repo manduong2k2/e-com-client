@@ -6,9 +6,9 @@ const EditProduct = () => {
   const { id } = useParams();
   const fetchBrandsAndCategories = async () => {
     try {
-      const brands = await axios.get("http://jul2nd.ddns.net/api/brands");
+      const brands = await axios.get("http://localhost/api/brands");
       const categories = await axios.get(
-        "http://jul2nd.ddns.net/api/categories"
+        "http://localhost/api/categories"
       );
       setBrands(brands.data);
       setCategories(categories.data);
@@ -44,7 +44,7 @@ const EditProduct = () => {
   useEffect(() => {
     fetchBrandsAndCategories();
     axios
-      .get("http://jul2nd.ddns.net/api/products/" + id, {
+      .get("http://localhost/api/products/" + id, {
         headers: {
           Authorization: "Bearer " + getCookie("token"),
         },
@@ -89,7 +89,7 @@ const EditProduct = () => {
       if (image) formData.append("image", image);
       formData.append("description", description);
       const response = await axios.post(
-        "http://jul2nd.ddns.net/api/product/edit/" + id,
+        "http://localhost/api/product/edit/" + id,
         formData,
         {
           headers: {

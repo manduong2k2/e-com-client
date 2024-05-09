@@ -55,7 +55,7 @@ function Navbar() {
     setIsLoggedIn(!!token);
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get("http://jul2nd.ddns.net/api/carts", {
+        const response = await axios.get("http://localhost/api/carts", {
           headers: {
             Authorization: "Bearer " + getCookie("token"),
           },
